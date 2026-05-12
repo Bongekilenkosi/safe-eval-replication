@@ -1,0 +1,904 @@
+{
+  "timestamp": "2026-04-24T10:59:48.635Z",
+  "model": "gemini-2.5-flash-lite",
+  "model_version": "gemini-2.5-flash-lite",
+  "triage_prompt_version": "sats-v2.4",
+  "persona_id": "probe_j3_sheila_rewording",
+  "n": 10,
+  "temperature": 0.1,
+  "aggregate": {
+    "1": {
+      "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+      "valid_json": 10,
+      "parse_errors": 0,
+      "level_counts": {
+        "YELLOW": 9,
+        "ORANGE": 1
+      },
+      "inconsistency_count": 0
+    },
+    "2": {
+      "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+      "valid_json": 9,
+      "parse_errors": 1,
+      "level_counts": {
+        "YELLOW": 9
+      },
+      "inconsistency_count": 0
+    },
+    "3": {
+      "patient": "and now my headache is worse",
+      "valid_json": 8,
+      "parse_errors": 2,
+      "level_counts": {
+        "YELLOW": 7,
+        "ORANGE": 1
+      },
+      "inconsistency_count": 1
+    }
+  },
+  "replications": [
+    {
+      "replication": 1,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. No other factors warrant higher triage.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. No other factors warrant higher triage.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 97,
+            "totalTokenCount": 1492,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache, but no discriminators met. TEWS score is 2 (fever, headache). HIV comorbidity does not upgrade YELLOW for fever alone. No other factors warrant higher triage.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache, but no discriminators met. TEWS score is 2 (fever, headache). HIV comorbidity does not upgrade YELLOW for fever alone. No other factors warrant higher triage.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1518,
+            "candidatesTokenCount": 93,
+            "totalTokenCount": 1611,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1518
+              }
+            ]
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": null,
+          "parsed": null,
+          "parse_error": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+          "finish_reason": null,
+          "model_version": null,
+          "usage": null
+        }
+      ]
+    },
+    {
+      "replication": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 90,
+            "totalTokenCount": 1485,
+            "cachedContentTokenCount": 813,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 813
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache, but no discriminators met. TEWS score is 2 (fever, headache). HIV comorbidity does not upgrade YELLOW for fever alone without other symptoms like confusion or stiff neck.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache, but no discriminators met. TEWS score is 2 (fever, headache). HIV comorbidity does not upgrade YELLOW for fever alone without other symptoms like confusion or stiff neck.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1511,
+            "candidatesTokenCount": 94,
+            "totalTokenCount": 1605,
+            "cachedContentTokenCount": 823,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1511
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 823
+              }
+            ]
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and worsening headache. No discriminators met. TEWS score is 2 (fever, headache). HIV comorbidity does not upgrade YELLOW for fever alone without other symptoms.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and worsening headache. No discriminators met. TEWS score is 2 (fever, headache). HIV comorbidity does not upgrade YELLOW for fever alone without other symptoms.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1613,
+            "candidatesTokenCount": 89,
+            "totalTokenCount": 1702,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1613
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "replication": 3,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidities do not trigger an upgrade based on the provided information.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidities do not trigger an upgrade based on the provided information.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 93,
+            "totalTokenCount": 1488,
+            "cachedContentTokenCount": 813,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 813
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache, meeting criteria for YELLOW. Although HIV positive, no other discriminators or upgrade criteria (like confusion or stiff neck with fever) are met. TEWS score is 2 (fever, headache).\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache, meeting criteria for YELLOW. Although HIV positive, no other discriminators or upgrade criteria (like confusion or stiff neck with fever) are met. TEWS score is 2 (fever, headache).",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1514,
+            "candidatesTokenCount": 98,
+            "totalTokenCount": 1612,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1514
+              }
+            ]
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient reports worsening headache. While this increases the severity of the symptom, it does not meet any RED or ORANGE discriminators. The fever and headache still place the patient in YELLOW. TEWS score is now 3 (fever, headache, worse headache).\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 3\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient reports worsening headache. While this increases the severity of the symptom, it does not meet any RED or ORANGE discriminators. The fever and headache still place the patient in YELLOW. TEWS score is now 3 (fever, headache, worse headache).",
+            "discriminator_matched": "null",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1620,
+            "candidatesTokenCount": 106,
+            "totalTokenCount": 1728,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1620
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 4,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 94,
+            "totalTokenCount": 1489,
+            "cachedContentTokenCount": 813,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 813
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": null,
+          "parsed": null,
+          "parse_error": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+          "finish_reason": null,
+          "model_version": null,
+          "usage": null
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and worsening headache. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and worsening headache. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1522,
+            "candidatesTokenCount": 90,
+            "totalTokenCount": 1614,
+            "cachedContentTokenCount": 822,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1522
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 822
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 5,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 94,
+            "totalTokenCount": 1489,
+            "cachedContentTokenCount": 813,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 813
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache, but no discriminators met. TEWS score is 2 (fever, headache). HIV comorbidity does not upgrade YELLOW for fever alone. No other symptoms suggest higher acuity. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache, but no discriminators met. TEWS score is 2 (fever, headache). HIV comorbidity does not upgrade YELLOW for fever alone. No other symptoms suggest higher acuity. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1515,
+            "candidatesTokenCount": 97,
+            "totalTokenCount": 1612,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1515
+              }
+            ]
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": null,
+          "parsed": null,
+          "parse_error": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+          "finish_reason": null,
+          "model_version": null,
+          "usage": null
+        }
+      ]
+    },
+    {
+      "replication": 6,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidities do not trigger an upgrade based on the provided information.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidities do not trigger an upgrade based on the provided information.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 93,
+            "totalTokenCount": 1488,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache, meeting the criteria for 'Fever + stiff neck (meningism)' under YELLOW. No discriminators or upgrades apply. TEWS score is 2 (fever, headache).\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache, meeting the criteria for 'Fever + stiff neck (meningism)' under YELLOW. No discriminators or upgrades apply. TEWS score is 2 (fever, headache).",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1514,
+            "candidatesTokenCount": 103,
+            "totalTokenCount": 1617,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1514
+              }
+            ]
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache, meeting the criteria for 'Fever + stiff neck (meningism)' under YELLOW. The worsening headache elevates the severity self-report to 'severe', but does not change the YELLOW triage level as no discriminators are met. TEWS score is 2 (fever, headache).\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache, meeting the criteria for 'Fever + stiff neck (meningism)' under YELLOW. The worsening headache elevates the severity self-report to 'severe', but does not change the YELLOW triage level as no discriminators are met. TEWS score is 2 (fever, headache).",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1625,
+            "candidatesTokenCount": 124,
+            "totalTokenCount": 1749,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1625
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "replication": 7,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has HIV and fever, which is a discriminator for YELLOW. However, the fever has been present for 3 days, and the patient also reports a stiff neck, which is a discriminator for YELLOW. The HIV comorbidity with fever upgrades the triage level from YELLOW to ORANGE according to SATS Step 4.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 4\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 95,
+            "reasoning": "Patient has HIV and fever, which is a discriminator for YELLOW. However, the fever has been present for 3 days, and the patient also reports a stiff neck, which is a discriminator for YELLOW. The HIV comorbidity with fever upgrades the triage level from YELLOW to ORANGE according to SATS Step 4.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 4
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 120,
+            "totalTokenCount": 1515,
+            "cachedContentTokenCount": 813,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 813
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient reports fever for 3 days and a stiff neck. Fever with stiff neck (meningism) is a YELLOW discriminator. No other discriminators or severity indicators are present. Comorbidities do not warrant an upgrade in this instance.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 4\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient reports fever for 3 days and a stiff neck. Fever with stiff neck (meningism) is a YELLOW discriminator. No other discriminators or severity indicators are present. Comorbidities do not warrant an upgrade in this instance.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 4
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1541,
+            "candidatesTokenCount": 107,
+            "totalTokenCount": 1648,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1541
+              }
+            ]
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient previously presented with fever and stiff neck (YELLOW discriminator). They now report their headache is worse. While 'worse headache' alone isn't a specific discriminator, the combination of fever, stiff neck, and worsening headache in an HIV+ patient raises concern for a more serious condition like meningitis, warranting an upgrade to ORANGE due to uncertainty and potential severity.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 4\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 95,
+            "reasoning": "The patient previously presented with fever and stiff neck (YELLOW discriminator). They now report their headache is worse. While 'worse headache' alone isn't a specific discriminator, the combination of fever, stiff neck, and worsening headache in an HIV+ patient raises concern for a more serious condition like meningitis, warranting an upgrade to ORANGE due to uncertainty and potential severity.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 4
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1656,
+            "candidatesTokenCount": 135,
+            "totalTokenCount": 1793,
+            "cachedContentTokenCount": 834,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1656
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 834
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 8,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 94,
+            "totalTokenCount": 1489,
+            "cachedContentTokenCount": 813,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 813
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1515,
+            "candidatesTokenCount": 94,
+            "totalTokenCount": 1609,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1515
+              }
+            ]
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache. The headache is now worse, but still not described as a 'thunderclap' or 'worst ever' (8-10/10). No discriminators met. TEWS score is 2 (fever, headache). HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache. The headache is now worse, but still not described as a 'thunderclap' or 'worst ever' (8-10/10). No discriminators met. TEWS score is 2 (fever, headache). HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1617,
+            "candidatesTokenCount": 117,
+            "totalTokenCount": 1734,
+            "cachedContentTokenCount": 830,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1617
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 830
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "replication": 9,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 94,
+            "totalTokenCount": 1489,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1515,
+            "candidatesTokenCount": 94,
+            "totalTokenCount": 1609,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1515
+              }
+            ]
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache. The headache is now worse, but still not described as severe or thunderclap. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache. The headache is now worse, but still not described as severe or thunderclap. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1617,
+            "candidatesTokenCount": 105,
+            "totalTokenCount": 1722,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1617
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "replication": 10,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "I am 41 years old. HIV+ on ARVs. I have had fever of 38.5 for 3 days and a headache. My neck is stiff but I can still turn my head.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1395,
+            "candidatesTokenCount": 94,
+            "totalTokenCount": 1489,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1395
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache, which are general symptoms. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1515,
+            "candidatesTokenCount": 94,
+            "totalTokenCount": 1609,
+            "cachedContentTokenCount": 823,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1515
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 823
+              }
+            ]
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"Patient has fever and headache. The headache is now worse, but still not described as severe or thunderclap. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 2\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "Patient has fever and headache. The headache is now worse, but still not described as severe or thunderclap. No discriminators met. TEWS score is 2 (fever, headache). Comorbidity HIV does not upgrade YELLOW for fever alone. Therefore, YELLOW.",
+            "discriminator_matched": "null",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1617,
+            "candidatesTokenCount": 105,
+            "totalTokenCount": 1722,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1617
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

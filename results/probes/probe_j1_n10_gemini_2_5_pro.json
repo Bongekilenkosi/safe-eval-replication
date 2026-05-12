@@ -1,0 +1,901 @@
+{
+  "timestamp": "2026-04-24T11:16:10.231Z",
+  "model": "gemini-2.5-pro",
+  "model_version": "gemini-2.5-pro",
+  "triage_prompt_version": "sats-v2.4",
+  "persona_id": "probe_j1_sheila_rewording",
+  "n": 10,
+  "temperature": 0.1,
+  "aggregate": {
+    "1": {
+      "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+      "valid_json": 10,
+      "parse_errors": 0,
+      "level_counts": {
+        "ORANGE": 10
+      },
+      "inconsistency_count": 0
+    },
+    "2": {
+      "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+      "valid_json": 10,
+      "parse_errors": 0,
+      "level_counts": {
+        "ORANGE": 9,
+        "GREEN": 1
+      },
+      "inconsistency_count": 0
+    },
+    "3": {
+      "patient": "and now my headache is worse",
+      "valid_json": 10,
+      "parse_errors": 0,
+      "level_counts": {
+        "ORANGE": 10
+      },
+      "inconsistency_count": 0
+    }
+  },
+  "replications": [
+    {
+      "replication": 1,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive with a fever, which is a YELLOW discriminator. This is immediately upgraded to ORANGE based on the comorbidity upgrade rule for HIV and fever, due to the high risk of serious opportunistic infection like meningitis.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive with a fever, which is a YELLOW discriminator. This is immediately upgraded to ORANGE based on the comorbidity upgrade rule for HIV and fever, due to the high risk of serious opportunistic infection like meningitis.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 103,
+            "totalTokenCount": 2909,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 1407
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The assessment remains ORANGE. The patient is HIV positive with fever and signs of meningism (headache, stiff neck). This meets the criteria for a YELLOW discriminator, which is then upgraded to ORANGE due to the specific comorbidity rule for HIV and fever, indicating a high risk of serious infection.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The assessment remains ORANGE. The patient is HIV positive with fever and signs of meningism (headache, stiff neck). This meets the criteria for a YELLOW discriminator, which is then upgraded to ORANGE due to the specific comorbidity rule for HIV and fever, indicating a high risk of serious infection.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1528,
+            "candidatesTokenCount": 118,
+            "totalTokenCount": 2648,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1528
+              }
+            ],
+            "thoughtsTokenCount": 1002
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The triage level remains ORANGE. A worsening headache in an HIV-positive patient with fever and a stiff neck increases the urgency and suspicion for a serious central nervous system infection like meningitis. The initial YELLOW discriminator (HIV + fever) is upgraded to ORANGE based on this high-risk clinical picture.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The triage level remains ORANGE. A worsening headache in an HIV-positive patient with fever and a stiff neck increases the urgency and suspicion for a serious central nervous system infection like meningitis. The initial YELLOW discriminator (HIV + fever) is upgraded to ORANGE based on this high-risk clinical picture.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1654,
+            "candidatesTokenCount": 117,
+            "totalTokenCount": 2823,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1654
+              }
+            ],
+            "thoughtsTokenCount": 1052
+          }
+        }
+      ]
+    },
+    {
+      "replication": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient presents with fever and a stiff neck, which is a YELLOW discriminator for meningism. However, as the patient is also HIV positive, the comorbidity upgrade rule for 'HIV + fever' elevates the triage level from YELLOW to ORANGE due to high risk of opportunistic infection.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient presents with fever and a stiff neck, which is a YELLOW discriminator for meningism. However, as the patient is also HIV positive, the comorbidity upgrade rule for 'HIV + fever' elevates the triage level from YELLOW to ORANGE due to high risk of opportunistic infection.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 114,
+            "totalTokenCount": 3036,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 1523
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 95,\n  \"reasoning\": \"The new information is reassuring, but the core presentation remains: an HIV-positive patient with fever, headache, and a stiff neck. This meets the YELLOW discriminator for meningism. The comorbidity upgrade rule 'HIV + fever' elevates the triage to ORANGE due to the high risk of opportunistic CNS infection.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 95,
+            "reasoning": "The new information is reassuring, but the core presentation remains: an HIV-positive patient with fever, headache, and a stiff neck. This meets the YELLOW discriminator for meningism. The comorbidity upgrade rule 'HIV + fever' elevates the triage to ORANGE due to the high risk of opportunistic CNS infection.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1539,
+            "candidatesTokenCount": 118,
+            "totalTokenCount": 2810,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1539
+              }
+            ],
+            "thoughtsTokenCount": 1153
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The worsening headache, in addition to the existing fever and stiff neck in an HIV-positive patient, increases the urgency. This presentation is highly suspicious for meningitis. The 'HIV + fever' comorbidity upgrade rule solidifies the triage level as ORANGE, requiring immediate medical evaluation.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The worsening headache, in addition to the existing fever and stiff neck in an HIV-positive patient, increases the urgency. This presentation is highly suspicious for meningitis. The 'HIV + fever' comorbidity upgrade rule solidifies the triage level as ORANGE, requiring immediate medical evaluation.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1665,
+            "candidatesTokenCount": 113,
+            "totalTokenCount": 2503,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1665
+              }
+            ],
+            "thoughtsTokenCount": 725
+          }
+        }
+      ]
+    },
+    {
+      "replication": 3,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive with fever and a stiff neck. This initially meets the YELLOW discriminator for meningism. The comorbidity upgrade rule for an HIV-positive patient with a fever requires upgrading the triage level from YELLOW to ORANGE due to high risk.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive with fever and a stiff neck. This initially meets the YELLOW discriminator for meningism. The comorbidity upgrade rule for an HIV-positive patient with a fever requires upgrading the triage level from YELLOW to ORANGE due to high risk.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 108,
+            "totalTokenCount": 3285,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 1778
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The additional information is noted. However, the combination of HIV, fever, and stiff neck remains a high-risk presentation. This meets the YELLOW discriminator for meningism, which is immediately upgraded to ORANGE due to the specific comorbidity rule for an HIV-positive patient with fever.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The additional information is noted. However, the combination of HIV, fever, and stiff neck remains a high-risk presentation. This meets the YELLOW discriminator for meningism, which is immediately upgraded to ORANGE due to the specific comorbidity rule for an HIV-positive patient with fever.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1533,
+            "candidatesTokenCount": 114,
+            "totalTokenCount": 3115,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1533
+              }
+            ],
+            "thoughtsTokenCount": 1468
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"A worsening headache, in addition to the existing fever and stiff neck in an HIV-positive patient, increases the urgency. The presentation meets the YELLOW discriminator for meningism, which is immediately upgraded to ORANGE due to the comorbidity rule for HIV with fever.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "A worsening headache, in addition to the existing fever and stiff neck in an HIV-positive patient, increases the urgency. The presentation meets the YELLOW discriminator for meningism, which is immediately upgraded to ORANGE due to the comorbidity rule for HIV with fever.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1655,
+            "candidatesTokenCount": 109,
+            "totalTokenCount": 2607,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1655
+              }
+            ],
+            "thoughtsTokenCount": 843
+          }
+        }
+      ]
+    },
+    {
+      "replication": 4,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive and presents with fever, headache, and a stiff neck. This meets the YELLOW discriminator for meningism. The comorbidity upgrade rule for an HIV patient with a fever elevates the triage level to ORANGE due to high risk of serious opportunistic infections.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive and presents with fever, headache, and a stiff neck. This meets the YELLOW discriminator for meningism. The comorbidity upgrade rule for an HIV patient with a fever elevates the triage level to ORANGE due to high risk of serious opportunistic infections.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 111,
+            "totalTokenCount": 3012,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 1502
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive and presents with fever, headache, and a stiff neck. This combination meets the YELLOW discriminator for meningism. The comorbidity upgrade rule for an HIV patient with a fever elevates the triage level to ORANGE due to the high risk of serious opportunistic infections.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive and presents with fever, headache, and a stiff neck. This combination meets the YELLOW discriminator for meningism. The comorbidity upgrade rule for an HIV patient with a fever elevates the triage level to ORANGE due to the high risk of serious opportunistic infections.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1536,
+            "candidatesTokenCount": 113,
+            "totalTokenCount": 2586,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1536
+              }
+            ],
+            "thoughtsTokenCount": 937
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive with fever, stiff neck, and a worsening headache. This presentation meets the YELLOW discriminator for meningism. The comorbidity upgrade rule for an HIV patient with a fever elevates the triage level to ORANGE due to high risk of serious opportunistic infections.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive with fever, stiff neck, and a worsening headache. This presentation meets the YELLOW discriminator for meningism. The comorbidity upgrade rule for an HIV patient with a fever elevates the triage level to ORANGE due to high risk of serious opportunistic infections.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1657,
+            "candidatesTokenCount": 111,
+            "totalTokenCount": 2732,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1657
+              }
+            ],
+            "thoughtsTokenCount": 964
+          }
+        }
+      ]
+    },
+    {
+      "replication": 5,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive with fever and stiff neck, meeting the YELLOW discriminator for meningism. The SATS comorbidity upgrade rule for an HIV positive patient with fever elevates the triage level from YELLOW to ORANGE due to the high risk of serious infection.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive with fever and stiff neck, meeting the YELLOW discriminator for meningism. The SATS comorbidity upgrade rule for an HIV positive patient with fever elevates the triage level from YELLOW to ORANGE due to the high risk of serious infection.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 108,
+            "totalTokenCount": 3280,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 1773
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive and presents with fever and stiff neck. This combination meets the YELLOW discriminator for meningism. However, the SATS comorbidity upgrade rule for an HIV positive patient with fever elevates the triage level from YELLOW to ORANGE due to high risk of serious infection.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive and presents with fever and stiff neck. This combination meets the YELLOW discriminator for meningism. However, the SATS comorbidity upgrade rule for an HIV positive patient with fever elevates the triage level from YELLOW to ORANGE due to high risk of serious infection.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1533,
+            "candidatesTokenCount": 113,
+            "totalTokenCount": 2583,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1533
+              }
+            ],
+            "thoughtsTokenCount": 937
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The worsening headache, in addition to the existing fever and stiff neck in an HIV positive patient, increases the urgency. The SATS comorbidity upgrade rule for an HIV positive patient with fever elevates the triage from YELLOW to ORANGE due to high risk of serious infection like meningitis.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The worsening headache, in addition to the existing fever and stiff neck in an HIV positive patient, increases the urgency. The SATS comorbidity upgrade rule for an HIV positive patient with fever elevates the triage from YELLOW to ORANGE due to high risk of serious infection like meningitis.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1654,
+            "candidatesTokenCount": 112,
+            "totalTokenCount": 2653,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1654
+              }
+            ],
+            "thoughtsTokenCount": 887
+          }
+        }
+      ]
+    },
+    {
+      "replication": 6,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n\"triage_level\": \"ORANGE\",\n\"confidence\": 100,\n\"reasoning\": \"The patient presents with fever and a stiff neck, a YELLOW discriminator for meningism. As the patient is HIV positive, the comorbidity upgrade rule for 'HIV + fever' is applied, elevating the triage level to ORANGE due to high risk of serious opportunistic infection.\",\n\"discriminator_matched\": \"HIV positive patient with fever\",\n\"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient presents with fever and a stiff neck, a YELLOW discriminator for meningism. As the patient is HIV positive, the comorbidity upgrade rule for 'HIV + fever' is applied, elevating the triage level to ORANGE due to high risk of serious opportunistic infection.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 106,
+            "totalTokenCount": 3750,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 2245
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n\"triage_level\": \"ORANGE\",\n\"confidence\": 100,\n\"reasoning\": \"The patient's presentation of fever and stiff neck is a YELLOW discriminator for meningism. Due to the patient's HIV positive status, the comorbidity upgrade rule 'HIV + fever' elevates the triage level to ORANGE. This is necessary due to the high risk of opportunistic CNS infections.\",\n\"discriminator_matched\": \"HIV positive patient with fever\",\n\"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient's presentation of fever and stiff neck is a YELLOW discriminator for meningism. Due to the patient's HIV positive status, the comorbidity upgrade rule 'HIV + fever' elevates the triage level to ORANGE. This is necessary due to the high risk of opportunistic CNS infections.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1531,
+            "candidatesTokenCount": 111,
+            "totalTokenCount": 2687,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1531
+              }
+            ],
+            "thoughtsTokenCount": 1045
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n\"triage_level\": \"ORANGE\",\n\"confidence\": 100,\n\"reasoning\": \"The patient has fever, a worsening headache, and a stiff neck. This combination in an HIV positive patient is a high-risk presentation. The comorbidity upgrade rule 'HIV + fever' elevates the triage from YELLOW to ORANGE due to the risk of serious opportunistic infection.\",\n\"discriminator_matched\": \"HIV positive patient with fever\",\n\"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient has fever, a worsening headache, and a stiff neck. This combination in an HIV positive patient is a high-risk presentation. The comorbidity upgrade rule 'HIV + fever' elevates the triage from YELLOW to ORANGE due to the risk of serious opportunistic infection.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1650,
+            "candidatesTokenCount": 107,
+            "totalTokenCount": 2810,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1650
+              }
+            ],
+            "thoughtsTokenCount": 1053
+          }
+        }
+      ]
+    },
+    {
+      "replication": 7,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive with fever and a stiff neck. This combination matches a YELLOW discriminator for meningism, but is upgraded to ORANGE based on the specific comorbidity rule for an HIV-positive patient with a fever, indicating a high-risk presentation.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive with fever and a stiff neck. This combination matches a YELLOW discriminator for meningism, but is upgraded to ORANGE based on the specific comorbidity rule for an HIV-positive patient with a fever, indicating a high-risk presentation.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 109,
+            "totalTokenCount": 2902,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 1394
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The new information does not change the triage level. The combination of HIV, fever, and stiff neck (meningism) remains a high-risk presentation. The YELLOW discriminator for meningism is upgraded to ORANGE due to the specific comorbidity rule for an HIV-positive patient with fever.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The new information does not change the triage level. The combination of HIV, fever, and stiff neck (meningism) remains a high-risk presentation. The YELLOW discriminator for meningism is upgraded to ORANGE due to the specific comorbidity rule for an HIV-positive patient with fever.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1534,
+            "candidatesTokenCount": 116,
+            "totalTokenCount": 3506,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1534
+              }
+            ],
+            "thoughtsTokenCount": 1856
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The worsening headache reinforces the urgency but does not change the triage level. The classification remains ORANGE due to the high-risk combination of being HIV positive with fever and signs of meningism (stiff neck), which requires an upgrade from YELLOW.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The worsening headache reinforces the urgency but does not change the triage level. The classification remains ORANGE due to the high-risk combination of being HIV positive with fever and signs of meningism (stiff neck), which requires an upgrade from YELLOW.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1658,
+            "candidatesTokenCount": 106,
+            "totalTokenCount": 3474,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1658
+              }
+            ],
+            "thoughtsTokenCount": 1710
+          }
+        }
+      ]
+    },
+    {
+      "replication": 8,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive and presents with fever and a stiff neck. This combination meets the YELLOW discriminator for meningism. The SATS comorbidity upgrade rule for an HIV positive patient with a fever elevates the triage level from YELLOW to ORANGE.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive and presents with fever and a stiff neck. This combination meets the YELLOW discriminator for meningism. The SATS comorbidity upgrade rule for an HIV positive patient with a fever elevates the triage level from YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 106,
+            "totalTokenCount": 2911,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 1406
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"Thank you for the extra information. While the absence of vomiting, rash, or confusion is reassuring, the combination of HIV, fever, and stiff neck remains a high-risk presentation. This meets the YELLOW discriminator for meningism, which is upgraded to ORANGE due to the HIV comorbidity.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "Thank you for the extra information. While the absence of vomiting, rash, or confusion is reassuring, the combination of HIV, fever, and stiff neck remains a high-risk presentation. This meets the YELLOW discriminator for meningism, which is upgraded to ORANGE due to the HIV comorbidity.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1531,
+            "candidatesTokenCount": 116,
+            "totalTokenCount": 3033,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1531
+              }
+            ],
+            "thoughtsTokenCount": 1386
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The worsening headache increases the urgency. The combination of being HIV positive with fever and signs of meningism (stiff neck, severe headache) is a high-risk presentation requiring very urgent assessment. The ORANGE triage level is maintained and reinforced by this new information.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The worsening headache increases the urgency. The combination of being HIV positive with fever and signs of meningism (stiff neck, severe headache) is a high-risk presentation requiring very urgent assessment. The ORANGE triage level is maintained and reinforced by this new information.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1655,
+            "candidatesTokenCount": 110,
+            "totalTokenCount": 3625,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1655
+              }
+            ],
+            "thoughtsTokenCount": 1860
+          }
+        }
+      ]
+    },
+    {
+      "replication": 9,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient meets the YELLOW discriminator criteria for 'Fever + stiff neck' and 'HIV positive patient with fever'. The SATS comorbidity upgrade rule requires upgrading an HIV-positive patient with a fever from YELLOW to ORANGE due to high risk of opportunistic infection.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient meets the YELLOW discriminator criteria for 'Fever + stiff neck' and 'HIV positive patient with fever'. The SATS comorbidity upgrade rule requires upgrading an HIV-positive patient with a fever from YELLOW to ORANGE due to high risk of opportunistic infection.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 110,
+            "totalTokenCount": 2684,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 1175
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient meets YELLOW discriminator criteria for 'Fever + stiff neck' and 'HIV positive patient with fever'. The SATS comorbidity upgrade rule requires upgrading an HIV-positive patient with a fever from YELLOW to ORANGE due to the high risk of opportunistic infections like meningitis.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient meets YELLOW discriminator criteria for 'Fever + stiff neck' and 'HIV positive patient with fever'. The SATS comorbidity upgrade rule requires upgrading an HIV-positive patient with a fever from YELLOW to ORANGE due to the high risk of opportunistic infections like meningitis.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1535,
+            "candidatesTokenCount": 112,
+            "totalTokenCount": 2613,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1535
+              }
+            ],
+            "thoughtsTokenCount": 966
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive with fever, stiff neck, and a now-worsening headache. This meets YELLOW criteria ('Fever + stiff neck', 'HIV positive patient with fever') and is upgraded to ORANGE by the SATS comorbidity rule due to high risk of meningitis.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive with fever, stiff neck, and a now-worsening headache. This meets YELLOW criteria ('Fever + stiff neck', 'HIV positive patient with fever') and is upgraded to ORANGE by the SATS comorbidity rule due to high risk of meningitis.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1655,
+            "candidatesTokenCount": 115,
+            "totalTokenCount": 3043,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1655
+              }
+            ],
+            "thoughtsTokenCount": 1273
+          }
+        }
+      ]
+    },
+    {
+      "replication": 10,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive and presents with fever, headache, and a stiff neck. This meets the YELLOW discriminator for 'HIV positive patient with fever'. The SATS comorbidity upgrade rule requires elevating this to ORANGE due to the high risk of serious opportunistic infection.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive and presents with fever, headache, and a stiff neck. This meets the YELLOW discriminator for 'HIV positive patient with fever'. The SATS comorbidity upgrade rule requires elevating this to ORANGE due to the high risk of serious opportunistic infection.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 110,
+            "totalTokenCount": 2999,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ],
+            "thoughtsTokenCount": 1490
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"GREEN\",\n  \"confidence\": 70,\n  \"reasoning\": \"The patient reports no acute symptoms like vomiting, rash, or confusion. They are eating, drinking, and adherent with ARVs. Based on the information provided, there is no active complaint requiring urgent care, so the triage level is GREEN.\",\n  \"discriminator_matched\": \"null\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "GREEN",
+            "confidence": 70,
+            "reasoning": "The patient reports no acute symptoms like vomiting, rash, or confusion. They are eating, drinking, and adherent with ARVs. Based on the information provided, there is no active complaint requiring urgent care, so the triage level is GREEN.",
+            "discriminator_matched": "null",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1535,
+            "candidatesTokenCount": 99,
+            "totalTokenCount": 4918,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1535
+              }
+            ],
+            "thoughtsTokenCount": 3284
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"ORANGE\",\n  \"confidence\": 100,\n  \"reasoning\": \"The patient is HIV positive with a worsening headache, in the context of a recent fever and stiff neck. This presentation is highly concerning for a central nervous system infection. The 'HIV positive patient with fever' discriminator (YELLOW) is upgraded to ORANGE due to the high-risk comorbidity and neurological symptoms.\",\n  \"discriminator_matched\": \"HIV positive patient with fever\",\n  \"tews_score\": 1\n}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 100,
+            "reasoning": "The patient is HIV positive with a worsening headache, in the context of a recent fever and stiff neck. This presentation is highly concerning for a central nervous system infection. The 'HIV positive patient with fever' discriminator (YELLOW) is upgraded to ORANGE due to the high-risk comorbidity and neurological symptoms.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-pro",
+          "usage": {
+            "promptTokenCount": 1642,
+            "candidatesTokenCount": 119,
+            "totalTokenCount": 3091,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1642
+              }
+            ],
+            "thoughtsTokenCount": 1330
+          }
+        }
+      ]
+    }
+  ]
+}

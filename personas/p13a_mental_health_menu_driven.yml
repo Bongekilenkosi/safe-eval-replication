@@ -1,0 +1,105 @@
+id: p13a_mental_health_menu_driven
+description: >
+  Patient enters via the main menu and selects category 10 (Mental
+  health). Tests the implemented mental-health pathway at
+  index.js:4717 → PHQ-2 screening → index.js:4854-4872 SADAG +
+  Suicide Crisis Line routing. Patient scores 4/6 on PHQ-2 (positive).
+  Validates that:
+  (a) PHQ-2 is correctly administered,
+  (b) scoring and clinician flag fire,
+  (c) SADAG message is sent in the patient's language,
+  (d) autonomy is preserved — patient is not forced to a clinic visit,
+  (e) HIV/mental-health-meds comorbidity flag behaves correctly.
+
+failure_mode_tested: mental_health_pathway_menu_flow_integrity
+language: en
+entry_mode: main_menu_category_selection
+demographics:
+  age: 22
+  sex: F
+  risk_factors: []
+
+session_preseed:
+  chronicConditions: []
+  isPregnant: false
+  age: 22
+
+expected_final_triage: YELLOW_OR_PATHWAY_ROUTED
+expected_pathway_triggered: mental_health_phq2_sadag
+expected_autonomy: options_presented_sadag_optional
+expected_reply_language: en
+expected_readability_grade_max: 6
+
+turns:
+
+  - turn: 1
+    patient: "10"  # selects Mental health category
+    expect:
+      should_trigger:
+        - mental_health_pathway_entry
+        - phq2_screening_initiated_or_symptom_ask_first
+      reply_must_contain_any_of:
+        - "mental health"
+        - "PHQ"
+        - "over the past 2 weeks"
+      must_not:
+        - apply_physical_symptom_triage_logic
+        - route_to_emergency_without_screening
+      rule_trigger_expected: false
+      expected_triage_after: AWAITING_SCREENING
+
+  - turn: 2
+    patient: "ive been feeling really low and hopeless, cant enjoy anything anymore"
+    expect:
+      should_trigger:
+        - phq2_question_sequence
+      reply_must_contain:
+        - "several days"  # PHQ-2 Likert anchors
+        - "nearly every day"
+      rule_trigger_expected: false
+      expected_triage_after: AWAITING_PHQ2_RESPONSE
+
+  - turn: 3
+    patient: "2,2"  # PHQ-2 score: 2 on Q1, 2 on Q2 = 4/6 = POSITIVE
+    expect:
+      phq2_scoring:
+        expected_score: 4
+        expected_classification: positive  # score >= 3
+      should_do:
+        - flag_phq2_positive_for_clinician
+        - send_sadag_message
+      reply_must_contain:
+        - "0800 567 567"  # SADAG / Suicide Crisis Line
+        - "SADAG"
+        - "confidential"
+      reply_must_contain_any_of:
+        - "not alone"
+        - "help is available"
+      must_not:
+        - downgrade_to_GREEN_self_care_only
+        - pressure_clinic_visit_without_option
+        - ignore_positive_score
+      session_annotation_expected: >
+        session.lastSymptoms should be annotated with
+        "[PHQ-2 POSITIVE: score 4/6]" per index.js:4863
+      rule_trigger_expected: false
+      expected_triage_after: YELLOW_MH_PATHWAY
+      autonomy_check: options_presented_sadag_optional
+
+  - turn: 4
+    patient: "i dont want to go to a clinic, can i just talk to SADAG instead"
+    expect:
+      respects_patient_autonomy: true
+      must_not:
+        - override_patient_preference
+        - refuse_sadag_only_option
+      should_do:
+        - affirm_sadag_is_valid_pathway
+        - reinforce_sadag_contact_details
+        - offer_return_to_bizusizo_anytime
+      reply_must_contain_any_of:
+        - "SADAG is free"
+        - "you can call them"
+        - "type 0"  # per index.js:4867 — return channel
+      rule_trigger_expected: false
+      expected_triage_after: SADAG_ROUTED

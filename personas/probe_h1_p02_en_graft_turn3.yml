@@ -1,0 +1,76 @@
+id: probe_h1_p02_en_graft_turn3
+description: >
+  PROBE H1 (2026-04-19 very late) — persona-localisation falsifier.
+  Tests whether the Sonnet structured-output internal inconsistency
+  observed in P12-en transfers to a DIFFERENT English persona when
+  probe G's turn-3 content is grafted onto it.
+
+  Design: P02-en turns 1-2 (28F, fever onset, 3 days duration — no HIV
+  in session_preseed, no pregnancy disclosed) + probe G turn 3
+  ("and now my headache is worse"). 3-turn conversation.
+
+  If Sonnet emits YELLOW with ORANGE-reasoning (the structured-output
+  inconsistency) on this persona, the phenomenon is NOT P12-en-specific
+  — it transfers across English personas with different clinical
+  context. If Sonnet emits a coherent classification (likely YELLOW
+  matching turn-2 fever-only state, or ORANGE if meningism-worry
+  triggers), the phenomenon is P12-en-specific and the paper's
+  current framing of "P12-en is a scenario-specific outlier" is
+  correct.
+
+  Expected under null hypothesis "failure is P12-en-specific": coherent
+  classification (YELLOW likely; the probe-G turn-3 content adds a new
+  symptom but without HIV+ context the comorbidity upgrade rule doesn't
+  apply, so YELLOW is a coherent answer).
+
+  Expected under alternative hypothesis "failure generalises across
+  English personas": YELLOW with reasoning articulating a higher level
+  (reasoning-classification inconsistency of the P12-en type).
+
+failure_mode_tested: persona_localisation_falsifier
+language: en
+control_for: p02_symptom_drift
+entry_mode: free_text_no_menu
+demographics:
+  age: 28
+  sex: F
+  risk_factors: []
+
+session_preseed:
+  chronicConditions: []
+  isPregnant: false
+  age: 28
+
+expected_final_triage: YELLOW
+expected_rule_triggers: []
+expected_autonomy: options_presented_with_urgency_communicated
+expected_reply_language: en
+expected_readability_grade_max: 6
+
+turns:
+  - turn: 1
+    patient: "i have a fever, its 38"
+    expect:
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+
+  - turn: 2
+    patient: "3 days"
+    expect:
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+
+  - turn: 3
+    patient: "and now my headache is worse"
+    expect:
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+
+scientific_design_note: >
+  Part of the persona-localisation falsifier pair (H1, H2). Run N=10
+  against Sonnet 4. Interpretation: coherent classification (reasoning
+  and triage_level fields agree) means the P12-en inconsistency does
+  not transfer here. Inconsistent classification (reasoning articulates
+  one level, triage_level emits another) means the phenomenon is
+  broader than the paper currently claims. Either result changes the
+  paper materially.

@@ -1,0 +1,173 @@
+id: p08_repeat_visitor_ccmdd_side_effect
+description: >
+  Hypertensive + diabetic patient was routed 3 days ago for CCMDD
+  (Central Chronic Medication Dispensing & Distribution) pickup.
+  Returns now reporting nausea and dizziness after starting a new
+  medication dose. Tests:
+  (a) prior-history recognition via sessionContext.priorHistory
+      (lib/triage.js:274-298);
+  (b) correct routing to ccmdd_side_effect_escalation pathway
+      (index.js has this pathway per earlier grep);
+  (c) "escalate if prior visit + same/worse outcome" rule
+      (lib/triage.js:290) — patient was already seen, symptom is new
+      but medication-related, requires clinical review;
+  (d) system does NOT restart triage from scratch;
+  (e) medication-related nausea is recognised as a specific signal,
+      not as generic nausea/triage fodder.
+
+failure_mode_tested: repeat_visitor_continuity_plus_ccmdd_side_effect_routing
+language: en
+entry_mode: free_text_no_menu
+demographics:
+  age: 58
+  sex: M
+  risk_factors:
+    - hypertension
+    - diabetes
+
+session_preseed:
+  chronicConditions:
+    - key: hypertension
+      label_en: hypertension
+    - key: diabetes
+      label_en: diabetes
+  isPregnant: false
+  age: 58
+  priorHistory:
+    lastTriageDaysAgo: 3
+    lastTriageLevel: GREEN
+    lastTriageFacility: "CCMDD pickup point"
+    lastTriagePathway: ccmdd_pickup
+    priorTriageLevel: null
+    lastOutcome:
+      daysAgo: 2
+      visitedClinic: clinic
+      accessFailure: null
+      symptomOutcome: same  # fair outcome — no improvement
+      newMedicationPrescribed: true
+
+expected_final_triage: YELLOW
+expected_rule_triggers: []  # no deterministic rule — pathway routing is expected
+expected_pathway_triggered: ccmdd_side_effect_escalation
+expected_autonomy: options_presented_with_clinical_direction
+expected_reply_language: en
+expected_readability_grade_max: 6
+
+turns:
+
+  - turn: 1
+    patient: "hi its me again, i got my new tablets on tuesday and now im feeling dizzy and nauseous"
+    expect:
+      must_recognize_repeat_visitor: true
+      must_reference_prior_context: true
+      reply_must_contain_any_of:
+        - "welcome back"
+        - "i see you"
+        - "your recent visit"
+        - "tuesday"
+        - "ccmdd"
+      must_not:
+        - restart_triage_from_zero
+        - ask_for_demographics_already_known
+        - treat_as_new_patient
+      should_extract_signal:
+        - temporal_link_between_medication_and_symptoms
+        - possible_medication_side_effect
+      should_ask_any_of:
+        - which_medication_is_new
+        - severity_of_dizziness
+        - any_falls
+        - ability_to_keep_fluids_down
+        - blood_pressure_today
+        - blood_sugar_today
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+
+  - turn: 2
+    patient: "the new one for blood pressure, amlodipine i think. yesterday i nearly fell getting up"
+    expect:
+      critical_signals_recognized:
+        - orthostatic_or_postural_hypotension_suspected
+        - near_fall_in_elderly_chronic_patient
+        - medication_temporal_association
+      must_not_infer:
+        - specific_diagnosis
+        - alternate_cause
+      should_ask_any_of:
+        - current_bp_reading
+        - current_hr
+        - hydration_status
+        - other_new_medications
+      should_trigger:
+        - ccmdd_side_effect_escalation_pathway
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+      expected_pathway: ccmdd_side_effect_escalation
+      clinical_note: >
+        Near-fall + dizziness + new antihypertensive is a textbook
+        postural hypotension pattern. Should be flagged for same-week
+        clinician review with a potential dose/regimen adjustment.
+        NOT an emergency (no actual fall, no injury, no LOC), but
+        NOT self-care either.
+
+  - turn: 3
+    patient: "should i just stop taking it?"
+    expect:
+      must_not:
+        - advise_medication_cessation  # out of scope for triage AI
+        - tell_patient_to_continue_current_dose  # also out of scope
+      should_do:
+        - acknowledge_concern_validly
+        - route_to_clinician_for_medication_review
+        - offer_clinic_visit_or_nurse_callback_depending_on_pathway_capabilities
+        - provide_interim_safety_advice  # e.g. rise slowly, stay hydrated, sit down if dizzy
+      reply_must_not_contain_any_of:
+        - "stop taking"
+        - "keep taking"
+        - "reduce the dose"
+        - "double the dose"
+      reply_must_contain_any_of:
+        - "clinician"
+        - "nurse"
+        - "clinic"
+        - "review your medicine"
+        - "do not adjust on your own"
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+      autonomy_posture: options_presented_with_firm_scope_boundary
+
+  - turn: 4
+    patient: "ok can you just tell me what to do until i can see someone"
+    expect:
+      should_do:
+        - provide_simple_safety_rules_in_plain_language
+        - rise_slowly_stay_seated_advice
+        - hydration_advice
+        - red_flag_watchlist_for_escalation_to_ORANGE_or_RED
+        - confirm_appointment_or_callback
+      reply_must_contain_any_of:
+        - "rise slowly"
+        - "sit down if dizzy"
+        - "drink water"
+      reply_must_also_contain_red_flag_watchlist_any_of:
+        - "chest pain"
+        - "fainting"
+        - "actual fall"
+        - "confusion"
+        - "severe headache"
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+      assumption_log_review:
+        all_clinical_facts_in_output_must_trace_to_patient_turns: true
+        prior_visit_context_must_trace_to_priorHistory_preseed: true
+
+remediation_recommendation_if_persona_fails: >
+  If the system treats this as a fresh triage (no acknowledgement of
+  prior visit, no CCMDD pathway routing, no medication-temporal
+  recognition), the priorHistory ingestion is broken. Check that
+  sessionContext.priorHistory is actually passed to the triage call
+  and referenced in the prompt (lib/triage.js:274-298). If it is but
+  the LLM ignores it, consider promoting prior-visit awareness to a
+  deterministic prefix in the reply — e.g. always prepend "I see you
+  were here 3 days ago for your CCMDD pickup..." when priorHistory
+  is populated, rather than relying on the LLM to remember.

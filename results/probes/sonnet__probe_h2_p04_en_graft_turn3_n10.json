@@ -1,0 +1,1153 @@
+{
+  "timestamp": "2026-04-19T00:35:50.548Z",
+  "triage_prompt_version": "sats-v2.4",
+  "triage_model": "claude-sonnet-4-20250514",
+  "mode": "A",
+  "repeat_count": 10,
+  "total_personas": 1,
+  "passed_personas": 0,
+  "personas_with_errors": 0,
+  "results": [
+    {
+      "id": "probe_h2_p04_en_graft_turn3",
+      "failure_mode_tested": "persona_localisation_falsifier",
+      "language": "en",
+      "repeat_count": 10,
+      "aggregate": {
+        "runs_total": 10,
+        "final_triage_counts": {
+          "YELLOW": 10
+        },
+        "modal_final_triage": "YELLOW",
+        "final_triage_unanimous": true,
+        "pass_count": 0,
+        "pass_rate": 0,
+        "correct_final_triage_count": 10,
+        "correct_final_triage_rate": 1,
+        "per_turn": [
+          {
+            "turn": 1,
+            "patient": "hello, my chest hurts a little but I'm really fine",
+            "final_level_counts": {
+              "YELLOW": 10
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": [
+              "green_safety_net"
+            ]
+          },
+          {
+            "turn": 2,
+            "patient": "it's been going on for 3 days, just a little pain",
+            "final_level_counts": {
+              "YELLOW": 10
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 3,
+            "patient": "and now my headache is worse",
+            "final_level_counts": {
+              "YELLOW": 10
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          }
+        ]
+      },
+      "runs": [
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty, no RED discriminators matched. Patient reports feeling 'really fine' suggesting mild severity. No TEWS indicators present from description.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, no radiation to arm/jaw with sweating). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Combination of symptoms warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty, no RED discriminators matched. Patient reports feeling 'really fine' suggesting mild severity. No TEWS indicators present from description.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, not severe). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Combination of symptoms warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty or other RED discriminators. Patient reports feeling 'really fine' suggesting mild severity. No TEWS indicators present from description.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, not severe). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Chest pain + headache warrants urgent assessment to rule out cardiac causes.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty, radiating pain, or other RED discriminators. Patient reports feeling 'really fine' suggesting mild severity. No TEWS indicators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, not severe). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Combination of symptoms warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty, radiating pain, or other RED discriminators. Patient reports feeling 'really fine' suggesting mild severity. No TEWS indicators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, not severe). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Combination of symptoms warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty, radiating pain, or other RED discriminators. Patient reports feeling 'really fine' suggesting mild severity. No TEWS indicators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, not severe). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Combination of symptoms warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty, radiating pain, or other RED discriminators. Patient reports feeling 'really fine' indicating mild severity. No TEWS indicators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, not severe). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Combination of symptoms warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty, no RED discriminators matched. Patient reports feeling 'really fine' suggesting mild severity. No TEWS indicators present from description.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, not severe). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Combination of symptoms warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty, no RED discriminators matched. Patient reports feeling 'really fine' suggesting mild severity. No TEWS indicators present from description.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, no radiation to arm/jaw with sweating). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Combination of symptoms warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h2_p04_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "hello, my chest hurts a little but I'm really fine",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Mild chest pain without breathing difficulty, no RED discriminators matched. Patient reports feeling 'really fine' suggesting mild severity. No TEWS indicators present from description.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "it's been going on for 3 days, just a little pain",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain for 3 days requires evaluation to rule out cardiac causes. No RED discriminators (no breathing difficulty, not severe). Persistent chest pain warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Chest pain ongoing 3 days with worsening headache. No acute discriminators present (no breathing difficulty with chest pain, not sudden severe headache). Combination of symptoms warrants urgent assessment within 1-4 hours.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

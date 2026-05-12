@@ -1,0 +1,990 @@
+{
+  "timestamp": "2026-04-18T21:06:14.882Z",
+  "triage_prompt_version": "sats-v2.4",
+  "triage_model": "claude-haiku-4-5-20251001",
+  "mode": "A",
+  "repeat_count": 5,
+  "total_personas": 1,
+  "passed_personas": 0,
+  "personas_with_errors": 0,
+  "results": [
+    {
+      "id": "p02_zu_symptom_drift_control",
+      "failure_mode_tested": "language_conditional_control_for_p02",
+      "language": "zu",
+      "repeat_count": 5,
+      "aggregate": {
+        "runs_total": 5,
+        "final_triage_counts": {
+          "RED": 5
+        },
+        "modal_final_triage": "RED",
+        "final_triage_unanimous": true,
+        "pass_count": 0,
+        "pass_rate": 0,
+        "correct_final_triage_count": 0,
+        "correct_final_triage_rate": 0,
+        "per_turn": [
+          {
+            "turn": 1,
+            "patient": "nginomkhuhlane, ungu-38",
+            "final_level_counts": {
+              "RED": 5
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 2,
+            "patient": "izinsuku ezintathu",
+            "final_level_counts": {
+              "RED": 3,
+              "ORANGE": 2
+            },
+            "final_level_unanimous": false,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 3,
+            "patient": "manje isifuba sami sibuhlungu kancane",
+            "final_level_counts": {
+              "YELLOW": 5
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 4,
+            "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+            "final_level_counts": {
+              "RED": 5
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 5,
+            "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+            "final_level_counts": {
+              "RED": 5
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          }
+        ]
+      },
+      "runs": [
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 3,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "RED",
+            "final_triage_correct": false,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 75,
+                "ai_reasoning": "38-year-old with 3-day history of mild chest pain. No discriminators matched (no breathing difficulty, no radiation to arm/jaw, no sweating, no trauma). Chest pain alone without respiratory distress = YELLOW (needs evaluation today to rule out cardiac/pulmonary cause). No comorbidities to upgrade.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 75
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "inferred: cardiac_history",
+                  "passed": false,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "RED",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 4,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "RED",
+            "final_triage_correct": false,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 75,
+                "ai_reasoning": "28-year-old with 3 days of mild chest pain (isifuba sibuhlungu kancane = chest pain a little). No discriminators matched: pain is mild (not severe), no breathing difficulty reported, no radiation to arm/jaw, no sweating. TEWS score 0–1. Mild chest pain warrants YELLOW for same-day evaluation to exclude cardiac or pulmonary pathology.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 75
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "RED",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 3,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "RED",
+            "final_triage_correct": false,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 75,
+                "ai_reasoning": "38-year-old with 3-day history of mild chest pain. No discriminators matched (no breathing difficulty, no radiation to arm/jaw, no sweating, no trauma). Chest pain alone without respiratory distress = YELLOW (needs evaluation today to rule out cardiac/pulmonary cause). No comorbidities to upgrade.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 75
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "inferred: cardiac_history",
+                  "passed": false,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "RED",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 4,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "RED",
+            "final_triage_correct": false,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 40,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 40
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 75,
+                "ai_reasoning": "28-year-old with 3 days of mild chest pain (isifuba sibuhlungu kancane = chest pain, mild). No discriminators matched: pain is mild (not severe), no breathing difficulty reported, no radiation to arm/jaw, no sweating. TEWS score 0–1. Mild chest pain warrants same-day evaluation to exclude cardiac or pulmonary pathology.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 75
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "RED",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 4,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "RED",
+            "final_triage_correct": false,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 40,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 40
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 75,
+                "ai_reasoning": "38-year-old with 3-day chest pain (mild). No discriminators matched: pain is not severe (described as 'kancane'=slight), no radiation, no breathing difficulty, no trauma. TEWS score 0. Chest pain warrants same-day evaluation to exclude cardiac/pulmonary pathology.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 75
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "RED",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "RED",
+                  "passed": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

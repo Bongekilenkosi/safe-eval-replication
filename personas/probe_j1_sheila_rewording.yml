@@ -1,0 +1,163 @@
+id: probe_j1_sheila_rewording
+description: >
+  PROBE J1 (2026-04-22) — P12-en clinical scenario re-authored
+  independently by clinical co-author (SP) with the explicit instruction
+  not to view the original P12-en YAML. Purpose: falsify the null
+  hypothesis that the v2.9 Sonnet P12-en structured-output inconsistency
+  finding is an artefact of Bongekile's specific YAML phrasing rather
+  than a scenario-tied behaviour.
+
+  SP returned three scenarios. The first set's Scenarios 2 and 3 were
+  excluded on review because they introduced additional symptomatology
+  beyond the brief's "hold clinical facts fixed" constraint:
+    - Scenario 2 added photosensitivity and nausea.
+    - Scenario 3 added blurred vision, drowsiness, and partner-reported
+      confusion.
+  Either deviation would drive up-triage on clinical grounds independent
+  of any YAML-authorial mechanism, confounding the phrasing-variance
+  interpretation.
+
+  SP subsequently returned revised Scenarios 2 and 3 that stay within
+  the brief's fixed-facts constraint. Trigram-Jaccard analysis
+  (2026-04-22):
+    orig  vs S1: 28.1%   orig  vs S2: 29.5%   orig  vs S3: 29.6%
+    S1    vs S2: 70.3%   S1    vs S3: 64.7%   S2    vs S3: 85.8%  ✗
+
+  S2 vs S3 exceeds the 80% re-do threshold. S3 kept over S2 (S1-vs-S3
+  pair overlap is lower than S1-vs-S2). Probe J therefore runs as N=20
+  across two variants: J1 (this file) and J3 (probe_j3_sheila_rewording).
+  Companion file mirrors this design note; the outcome matrix below is
+  the commitment for the combined J1+J3 result.
+
+  Brief to SP specified a 41-year-old male. SP's Scenario 1 header
+  stated "Female" but the turn text itself does not contain sex-specific
+  content. Demographics in this YAML use M to match the original P12-en
+  scenario and the brief's clinical specification; SP's turn wording is
+  preserved verbatim.
+
+  Original (P12-en) turns 1-2:
+    T1: "hello, I have had fever for three days and my head hurts"
+    T2: "I measured it, 38.5. My neck is a bit stiff but I can still move it"
+
+  Probe J1 turns 1-2 (SP re-authoring, Scenario 1):
+    T1: "Hi I am 41, HIV positive on ARVs. I have had fever, bad
+        headache, and stiff neck for 3 days. Temp is 38.5. I can still
+        move my neck but it is uncomfortable."
+    T2: "No vomiting, no rash, no confusion. I am eating and drinking
+        normally. I take my ARVs every day."
+
+  Turn 3: probe-G turn-3 content grafted ("and now my headache is
+  worse") per the pre-registered probe J design in
+  probe_j_brief_to_sheila.md.
+
+  Pre-registered two-variant outcome interpretations (combines J1 + J3;
+  commit to these BEFORE running):
+
+    Both J1 AND J3 reproduce        → two independent re-authorings
+      (each 10/10 ORANGE or RED       confirm the P12-en behaviour
+       with valid JSON)               across phrasing variance; scenario-
+                                     localised claim meaningfully
+                                     strengthens. v2.10 short delta.
+
+    Both coherent YELLOW             → clean two-variant falsification;
+      (each 0/10 inconsistency,       finding is Bongekile-YAML-specific;
+       reasoning matches class)      Sonnet section of paper collapses;
+                                     paper recast as primarily
+                                     methodological (three silent-
+                                     harness classes, no Sonnet-specific
+                                     empirical claim).
+
+    Both reproduce the inconsistency → finding survives across two
+      (each 10/10 YELLOW with         independent authorings; scenario-
+       ORANGE-articulating reasoning) localised claim strengthens;
+                                     mechanism claim about the
+                                     inconsistency itself gains support.
+
+    Split (J1 reproduces, J3         → finding is phrasing-specific
+      coherent; or J1 coherent,      within the P12-en scenario, not
+      J3 reproduces)                 scenario-tied. Paper's mechanism
+                                     claim narrows to "phrasing-
+                                     sensitive within HIV+fever+
+                                     meningism rather than scenario-
+                                     sensitive."
+
+    Mixed within either variant     → noisy; treat as inconclusive.
+      (e.g. J1 gives 6/10, 4/10)     Consider re-commissioning a
+                                     divergent J2 from SP for full
+                                     three-variant power.
+
+    Parse-salvage dominates          → variant-specific JSON-reliability
+      (either variant)                effect; re-run affected variant
+                                     at N=20 or higher.
+
+  Two-variant asymmetry note: a positive reproduction across two
+  variants provides stronger evidence for scenario-localisation than
+  single-variant would, but still weaker than three-variant. SP's two
+  authorings could both share a lexical or structural quirk with
+  Bongekile's original. A clean two-variant falsification (both
+  coherent) disconfirms more strongly than two-variant confirmation
+  confirms. The paper's Methods section must state this asymmetry.
+
+failure_mode_tested: yaml_authoring_artefact_falsifier
+language: en
+control_for: p12_en_hiv_meningitis_control
+entry_mode: free_text_no_menu
+demographics:
+  age: 41
+  sex: M
+  risk_factors:
+    - HIV
+    - ARVs
+
+session_preseed:
+  chronicConditions:
+    - key: HIV
+      label_en: HIV
+  isPregnant: false
+  age: 41
+
+expected_final_triage: ORANGE
+expected_rule_triggers: []
+expected_autonomy: firm_clinical_direction_with_empathy
+expected_reply_language: en
+expected_readability_grade_max: 6
+
+turns:
+  - turn: 1
+    patient: "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable."
+    expect:
+      expected_triage_after: YELLOW_OR_ORANGE
+      rule_trigger_expected: false
+
+  - turn: 2
+    patient: "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day."
+    expect:
+      expected_triage_after: ORANGE
+      rule_trigger_expected: false
+
+  - turn: 3
+    patient: "and now my headache is worse"
+    expect:
+      expected_triage_after: ORANGE_OR_RED
+      rule_trigger_expected: false
+
+scientific_design_note: >
+  Probe J is the authorial-artefact falsifier for the v2.9 Sonnet
+  P12-en finding. Originally designed as N=30 across three independent
+  SP re-authorings; reduced to N=10 on Scenario 1 only after review of
+  SP's drafts found Scenarios 2 and 3 introduced clinical-fact drift
+  beyond the brief.
+
+  Informal trigram-Jaccard overlap against the original P12-en turns
+  1-2 is well below the 80% re-do threshold — sentence structure and
+  lexical choices are materially different (SP opens with greeting +
+  demographic self-identification; Bongekile's original opens with a
+  lowercase greeting and jumps directly to symptoms). Quantitative
+  overlap to be recorded alongside the triage results.
+
+  Excluded-variant note: SP's Scenarios 2 and 3 are preserved in
+  probe_j_brief_to_sheila.md for audit but are NOT run. The decision
+  to exclude is logged with the date and rationale. If the Scenario 1
+  result is ambiguous (mixed) or the paper's reviewers request
+  three-variant power, SP can be asked to redraft J2 and J3 with the
+  clinical-facts constraint reiterated.

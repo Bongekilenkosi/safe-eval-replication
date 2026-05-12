@@ -1,0 +1,1177 @@
+{
+  "timestamp": "2026-04-23T15:25:55.172Z",
+  "triage_prompt_version": "sats-v2.4",
+  "triage_model": "claude-sonnet-4-20250514",
+  "mode": "A",
+  "repeat_count": 10,
+  "total_personas": 1,
+  "passed_personas": 0,
+  "personas_with_errors": 0,
+  "results": [
+    {
+      "id": "probe_j1_sheila_rewording",
+      "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+      "language": "en",
+      "repeat_count": 10,
+      "aggregate": {
+        "runs_total": 10,
+        "final_triage_counts": {
+          "ORANGE": 10
+        },
+        "modal_final_triage": "ORANGE",
+        "final_triage_unanimous": true,
+        "pass_count": 0,
+        "pass_rate": 0,
+        "correct_final_triage_count": 10,
+        "correct_final_triage_rate": 1,
+        "per_turn": [
+          {
+            "turn": 1,
+            "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+            "final_level_counts": {
+              "ORANGE": 10
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": [
+              "hiv_meningism"
+            ]
+          },
+          {
+            "turn": 2,
+            "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+            "final_level_counts": {
+              "ORANGE": 10
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": [
+              "hiv_meningism"
+            ]
+          },
+          {
+            "turn": 3,
+            "patient": "and now my headache is worse",
+            "final_level_counts": {
+              "ORANGE": 10
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": [
+              "hiv_meningism"
+            ]
+          }
+        ]
+      },
+      "runs": [
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever requires upgrade YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever requires upgrade YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever requires upgrade YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever requires upgrade YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever requires upgrade YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever requires upgrade YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Worsening headache supports urgency.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever requires upgrade YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever requires upgrade YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_j1_sheila_rewording",
+          "failure_mode_tested": "yaml_authoring_artefact_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 3,
+            "hard_pass_rate": "50.0%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck (meningism) is a YELLOW discriminator indicating possible meningitis. HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW",
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "YELLOW discriminator: fever + stiff neck (meningism). HIV+ with fever upgrades YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 95,
+                "ai_reasoning": "Fever + stiff neck indicates meningism (YELLOW discriminator). HIV+ with fever requires upgrade YELLOW→ORANGE per comorbidity rules. Meningitis must be excluded urgently.",
+                "after_rules_level": "ORANGE",
+                "rule_override": "hiv_meningism",
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 95
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "hiv_meningism"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

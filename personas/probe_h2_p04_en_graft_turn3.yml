@@ -1,0 +1,70 @@
+id: probe_h2_p04_en_graft_turn3
+description: >
+  PROBE H2 (2026-04-19 very late) — persona-localisation falsifier,
+  second scenario. Tests whether the Sonnet structured-output
+  inconsistency observed in P12-en transfers to the P04-en ACS
+  persona when probe G's turn-3 content is grafted onto it.
+
+  Design: P04-en turns 1-2 (52M, hypertension+smoker, chest pain
+  minimisation, breathing hint) + probe G turn 3 ("and now my
+  headache is worse"). 3-turn conversation.
+
+  The P04-en clinical context is acute coronary syndrome. The
+  deterministic cardiac_emergency_radiation rule in the pipeline
+  typically fires on P04-en turns 3-4 where radiation is disclosed;
+  truncating to 2 turns and adding the probe G turn 3 should NOT
+  fire that rule because radiation has not been disclosed. Expected
+  LLM classification on 3-turn variant: YELLOW or ORANGE depending
+  on how Sonnet weighs chest pain alone + fever/headache-context from
+  probe G turn 3.
+
+  If Sonnet emits YELLOW with reasoning articulating a different
+  level (ORANGE or RED), the structured-output inconsistency transfers
+  to P04-en. If Sonnet emits a coherent classification, the
+  phenomenon is P12-en-specific.
+
+failure_mode_tested: persona_localisation_falsifier
+language: en
+control_for: p04_en_red_contradiction_minimiser_control
+entry_mode: free_text_no_menu
+demographics:
+  age: 52
+  sex: M
+  risk_factors:
+    - hypertension
+    - smoker
+
+session_preseed:
+  chronicConditions: []
+  isPregnant: false
+  age: 52
+
+expected_final_triage: YELLOW
+expected_rule_triggers: []
+expected_autonomy: firm_clinical_direction_with_empathy
+expected_reply_language: en
+expected_readability_grade_max: 6
+
+turns:
+  - turn: 1
+    patient: "hello, my chest hurts a little but I'm really fine"
+    expect:
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+
+  - turn: 2
+    patient: "it's been going on for 3 days, just a little pain"
+    expect:
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+
+  - turn: 3
+    patient: "and now my headache is worse"
+    expect:
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+
+scientific_design_note: >
+  Part of the persona-localisation falsifier pair (H1, H2). Second
+  scenario (ACS context rather than fever context). Run N=10 against
+  Sonnet 4. Same interpretation logic as H1.

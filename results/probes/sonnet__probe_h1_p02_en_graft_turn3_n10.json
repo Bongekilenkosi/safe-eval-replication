@@ -1,0 +1,1153 @@
+{
+  "timestamp": "2026-04-19T00:33:55.612Z",
+  "triage_prompt_version": "sats-v2.4",
+  "triage_model": "claude-sonnet-4-20250514",
+  "mode": "A",
+  "repeat_count": 10,
+  "total_personas": 1,
+  "passed_personas": 0,
+  "personas_with_errors": 0,
+  "results": [
+    {
+      "id": "probe_h1_p02_en_graft_turn3",
+      "failure_mode_tested": "persona_localisation_falsifier",
+      "language": "en",
+      "repeat_count": 10,
+      "aggregate": {
+        "runs_total": 10,
+        "final_triage_counts": {
+          "YELLOW": 10
+        },
+        "modal_final_triage": "YELLOW",
+        "final_triage_unanimous": true,
+        "pass_count": 0,
+        "pass_rate": 0,
+        "correct_final_triage_count": 10,
+        "correct_final_triage_rate": 1,
+        "per_turn": [
+          {
+            "turn": 1,
+            "patient": "i have a fever, its 38",
+            "final_level_counts": {
+              "YELLOW": 10
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": [
+              "green_safety_net"
+            ]
+          },
+          {
+            "turn": 2,
+            "patient": "3 days",
+            "final_level_counts": {
+              "YELLOW": 10
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 3,
+            "patient": "and now my headache is worse",
+            "final_level_counts": {
+              "YELLOW": 10
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          }
+        ]
+      },
+      "runs": [
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires same-day evaluation to rule out serious infections, determine cause, and prevent complications. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires same-day evaluation to rule out serious infections, determine cause, and prevent complications. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires same-day evaluation to rule out serious infections, determine cause, and prevent complications. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires same-day evaluation to rule out serious infections, determine cause, and prevent complications. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires same-day evaluation to rule out serious infections, determine cause, and prevent complications. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires same-day evaluation to rule out serious infections, determine cause, and prevent complications. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires clinic assessment today to rule out serious infections. No RED/ORANGE discriminators present. TEWS score 1 (fever) = GREEN, but fever duration upgrades to YELLOW for proper evaluation.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires same-day evaluation to rule out serious infections, determine cause, and prevent complications. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires same-day evaluation to rule out serious infections, determine cause, and prevent complications. No red/orange discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "probe_h1_p02_en_graft_turn3",
+          "failure_mode_tested": "persona_localisation_falsifier",
+          "language": "en",
+          "summary": {
+            "total_turns": 3,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 5,
+            "hard_pass_rate": "83.3%",
+            "total_soft_checks": 0,
+            "passed_soft_checks": 0,
+            "final_triage_expected": "YELLOW",
+            "final_triage_actual": "YELLOW",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "i have a fever, its 38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever alone (38°C) without other concerning symptoms. No discriminators matched. TEWS score 1 (fever/hot). Isolated fever in healthy 28-year-old = GREEN.",
+                "after_rules_level": "YELLOW",
+                "rule_override": "green_safety_net",
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": false,
+                  "actual": "green_safety_net"
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "3 days",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever for 3 days requires same-day evaluation to rule out serious infections, determine cause, and prevent complications. No red/orange discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "and now my headache is worse",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 85,
+                "ai_reasoning": "Fever 38°C for 3 days with worsening headache requires same-day evaluation to rule out serious causes like meningitis or other bacterial infections. No RED/ORANGE discriminators present.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,990 @@
+{
+  "timestamp": "2026-04-24T12:19:38.851Z",
+  "model": "gpt-4o",
+  "model_version": "gpt-4o-2024-08-06",
+  "triage_prompt_version": "sats-v2.4",
+  "persona_id": "probe_j1_sheila_rewording",
+  "n": 10,
+  "temperature": 0.1,
+  "aggregate": {
+    "1": {
+      "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+      "valid_json": 10,
+      "parse_errors": 0,
+      "level_counts": {
+        "ORANGE": 10
+      },
+      "inconsistency_count": 0
+    },
+    "2": {
+      "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+      "valid_json": 10,
+      "parse_errors": 0,
+      "level_counts": {
+        "ORANGE": 10
+      },
+      "inconsistency_count": 0
+    },
+    "3": {
+      "patient": "and now my headache is worse",
+      "valid_json": 10,
+      "parse_errors": 0,
+      "level_counts": {
+        "ORANGE": 10
+      },
+      "inconsistency_count": 0
+    }
+  },
+  "replications": [
+    {
+      "replication": 1,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 60,
+            "total_tokens": 1521,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":85,\"reasoning\":\"Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 85,
+            "reasoning": "Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1559,
+            "completion_tokens": 71,
+            "total_tokens": 1630,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1650,
+            "completion_tokens": 64,
+            "total_tokens": 1714,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "replication": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 60,
+            "total_tokens": 1521,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":85,\"reasoning\":\"Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 85,
+            "reasoning": "Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1559,
+            "completion_tokens": 71,
+            "total_tokens": 1630,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1650,
+            "completion_tokens": 64,
+            "total_tokens": 1714,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "replication": 3,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 60,
+            "total_tokens": 1521,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":85,\"reasoning\":\"Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":1}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 85,
+            "reasoning": "Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1559,
+            "completion_tokens": 71,
+            "total_tokens": 1630,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":1}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 1
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1650,
+            "completion_tokens": 64,
+            "total_tokens": 1714,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "replication": 4,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 60,
+            "total_tokens": 1521,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":85,\"reasoning\":\"Despite the absence of additional symptoms, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 85,
+            "reasoning": "Despite the absence of additional symptoms, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1559,
+            "completion_tokens": 67,
+            "total_tokens": 1626,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests a serious condition like meningitis. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests a serious condition like meningitis. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1646,
+            "completion_tokens": 67,
+            "total_tokens": 1713,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "replication": 5,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 60,
+            "total_tokens": 1521,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":85,\"reasoning\":\"Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 85,
+            "reasoning": "Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1559,
+            "completion_tokens": 71,
+            "total_tokens": 1630,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1650,
+            "completion_tokens": 64,
+            "total_tokens": 1714,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "replication": 6,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE. Discriminator matched: HIV positive patient with fever.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":3}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE. Discriminator matched: HIV positive patient with fever.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 70,
+            "total_tokens": 1531,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":85,\"reasoning\":\"Despite the absence of vomiting, rash, or confusion, the patient has HIV with fever and stiff neck, suggesting possible meningism. HIV with fever upgrades YELLOW to ORANGE. Discriminator matched: HIV positive patient with fever.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 85,
+            "reasoning": "Despite the absence of vomiting, rash, or confusion, the patient has HIV with fever and stiff neck, suggesting possible meningism. HIV with fever upgrades YELLOW to ORANGE. Discriminator matched: HIV positive patient with fever.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1569,
+            "completion_tokens": 79,
+            "total_tokens": 1648,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient's headache worsening, combined with HIV and fever, reinforces the concern for meningism. HIV with fever upgrades YELLOW to ORANGE. Discriminator matched: HIV positive patient with fever.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":3}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient's headache worsening, combined with HIV and fever, reinforces the concern for meningism. HIV with fever upgrades YELLOW to ORANGE. Discriminator matched: HIV positive patient with fever.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1668,
+            "completion_tokens": 71,
+            "total_tokens": 1739,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "replication": 7,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":3}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 60,
+            "total_tokens": 1521,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":85,\"reasoning\":\"Despite the absence of additional symptoms, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 85,
+            "reasoning": "Despite the absence of additional symptoms, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1559,
+            "completion_tokens": 67,
+            "total_tokens": 1626,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The worsening headache, combined with fever and stiff neck in an HIV positive patient, suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1646,
+            "completion_tokens": 64,
+            "total_tokens": 1710,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "replication": 8,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":3}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 60,
+            "total_tokens": 1521,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":85,\"reasoning\":\"Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 85,
+            "reasoning": "Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV positive patient suggests possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1559,
+            "completion_tokens": 71,
+            "total_tokens": 1630,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The worsening headache, combined with fever and stiff neck in an HIV positive patient, reinforces the concern for meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":3}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The worsening headache, combined with fever and stiff neck in an HIV positive patient, reinforces the concern for meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1650,
+            "completion_tokens": 66,
+            "total_tokens": 1716,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "replication": 9,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, indicating possible meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 60,
+            "total_tokens": 1521,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":85,\"reasoning\":\"Despite the absence of vomiting or confusion, the presence of fever and stiff neck in an HIV positive patient suggests meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 85,
+            "reasoning": "Despite the absence of vomiting or confusion, the presence of fever and stiff neck in an HIV positive patient suggests meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1559,
+            "completion_tokens": 67,
+            "total_tokens": 1626,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The worsening headache, combined with fever and stiff neck in an HIV positive patient, reinforces the concern for meningism. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"HIV positive patient with fever\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The worsening headache, combined with fever and stiff neck in an HIV positive patient, reinforces the concern for meningism. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "HIV positive patient with fever",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1646,
+            "completion_tokens": 66,
+            "total_tokens": 1712,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "replication": 10,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"The patient has HIV and presents with fever and stiff neck, which matches the 'Fever + stiff neck (meningism)' discriminator. Additionally, HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"Fever + stiff neck (meningism)\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "The patient has HIV and presents with fever and stiff neck, which matches the 'Fever + stiff neck (meningism)' discriminator. Additionally, HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 77,
+            "total_tokens": 1538,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":90,\"reasoning\":\"Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV-positive patient matches the 'Fever + stiff neck (meningism)' discriminator. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"Fever + stiff neck (meningism)\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 90,
+            "reasoning": "Despite the absence of vomiting, rash, or confusion, the presence of fever and stiff neck in an HIV-positive patient matches the 'Fever + stiff neck (meningism)' discriminator. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1576,
+            "completion_tokens": 85,
+            "total_tokens": 1661,
+            "prompt_tokens_details": {
+              "cached_tokens": 1408,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\"triage_level\":\"ORANGE\",\"confidence\":95,\"reasoning\":\"The patient's worsening headache, combined with fever and stiff neck, reinforces the 'Fever + stiff neck (meningism)' discriminator. HIV with fever upgrades YELLOW to ORANGE.\",\"discriminator_matched\":\"Fever + stiff neck (meningism)\",\"tews_score\":2}",
+          "parsed": {
+            "triage_level": "ORANGE",
+            "confidence": 95,
+            "reasoning": "The patient's worsening headache, combined with fever and stiff neck, reinforces the 'Fever + stiff neck (meningism)' discriminator. HIV with fever upgrades YELLOW to ORANGE.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 2
+          },
+          "parse_error": null,
+          "finish_reason": "stop",
+          "model_version": "gpt-4o-2024-08-06",
+          "usage": {
+            "prompt_tokens": 1681,
+            "completion_tokens": 74,
+            "total_tokens": 1755,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

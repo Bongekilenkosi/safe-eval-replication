@@ -1,0 +1,886 @@
+{
+  "timestamp": "2026-04-24T10:58:17.367Z",
+  "model": "gemini-2.5-flash-lite",
+  "model_version": "gemini-2.5-flash-lite",
+  "triage_prompt_version": "sats-v2.4",
+  "persona_id": "probe_j1_sheila_rewording",
+  "n": 10,
+  "temperature": 0.1,
+  "aggregate": {
+    "1": {
+      "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+      "valid_json": 10,
+      "parse_errors": 0,
+      "level_counts": {
+        "YELLOW": 10
+      },
+      "inconsistency_count": 0
+    },
+    "2": {
+      "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+      "valid_json": 10,
+      "parse_errors": 0,
+      "level_counts": {
+        "YELLOW": 10
+      },
+      "inconsistency_count": 7
+    },
+    "3": {
+      "patient": "and now my headache is worse",
+      "valid_json": 9,
+      "parse_errors": 1,
+      "level_counts": {
+        "YELLOW": 9
+      },
+      "inconsistency_count": 7
+    }
+  },
+  "replications": [
+    {
+      "replication": 1,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 89,
+            "totalTokenCount": 1488,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. Although the patient has HIV, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE. The absence of vomiting, rash, and confusion, and normal intake, do not change the initial YELLOW classification.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. Although the patient has HIV, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE. The absence of vomiting, rash, and confusion, and normal intake, do not change the initial YELLOW classification.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1514,
+            "candidatesTokenCount": 122,
+            "totalTokenCount": 1638,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1514
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. The headache worsening does not change the classification as it is not described as a 'thunderclap' headache (ORANGE) or associated with other RED/ORANGE discriminators. HIV comorbidity does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. The headache worsening does not change the classification as it is not described as a 'thunderclap' headache (ORANGE) or associated with other RED/ORANGE discriminators. HIV comorbidity does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1644,
+            "candidatesTokenCount": 122,
+            "totalTokenCount": 1768,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1644
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 89,
+            "totalTokenCount": 1488,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. The additional information provided (no vomiting, rash, confusion, eating/drinking normally) does not change this classification. HIV comorbidity does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. The additional information provided (no vomiting, rash, confusion, eating/drinking normally) does not change this classification. HIV comorbidity does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1514,
+            "candidatesTokenCount": 110,
+            "totalTokenCount": 1626,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1514
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": null,
+          "parsed": null,
+          "parse_error": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+          "finish_reason": null,
+          "model_version": null,
+          "usage": null
+        }
+      ]
+    },
+    {
+      "replication": 3,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV comorbidity does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 3\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV comorbidity does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 86,
+            "totalTokenCount": 1485,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. Although they are HIV positive, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE based on the provided information.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 3\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. Although they are HIV positive, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE based on the provided information.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1511,
+            "candidatesTokenCount": 105,
+            "totalTokenCount": 1618,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1511
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient previously presented with fever and stiff neck (meningism), a YELLOW discriminator. While the headache has worsened, it is not described as a 'thunderclap' headache (ORANGE) or associated with other RED/ORANGE discriminators. Therefore, the triage level remains YELLOW.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 3\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient previously presented with fever and stiff neck (meningism), a YELLOW discriminator. While the headache has worsened, it is not described as a 'thunderclap' headache (ORANGE) or associated with other RED/ORANGE discriminators. Therefore, the triage level remains YELLOW.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1624,
+            "candidatesTokenCount": 117,
+            "totalTokenCount": 1743,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1624
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 4,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV comorbidity does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 3\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV comorbidity does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 86,
+            "totalTokenCount": 1485,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. Although they are HIV positive, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE. The absence of vomiting, rash, or confusion, and normal intake, do not change the initial YELLOW classification.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 3\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. Although they are HIV positive, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE. The absence of vomiting, rash, or confusion, and normal intake, do not change the initial YELLOW classification.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1511,
+            "candidatesTokenCount": 122,
+            "totalTokenCount": 1635,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1511
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient's primary complaint remains fever and stiff neck (meningism), which is a YELLOW discriminator. While the headache has worsened, it does not meet the criteria for a higher triage level (e.g., thunderclap headache for ORANGE) and no new discriminators have emerged. The HIV comorbidity does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 3\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient's primary complaint remains fever and stiff neck (meningism), which is a YELLOW discriminator. While the headache has worsened, it does not meet the criteria for a higher triage level (e.g., thunderclap headache for ORANGE) and no new discriminators have emerged. The HIV comorbidity does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 3
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1641,
+            "candidatesTokenCount": 129,
+            "totalTokenCount": 1772,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1641
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 5,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not automatically upgrade this presentation without other factors.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not automatically upgrade this presentation without other factors.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 92,
+            "totalTokenCount": 1491,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. The additional information confirms no red or orange flags, and no other discriminators are met. The HIV comorbidity does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. The additional information confirms no red or orange flags, and no other discriminators are met. The HIV comorbidity does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1517,
+            "candidatesTokenCount": 109,
+            "totalTokenCount": 1628,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1517
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. The headache worsening does not change the triage level as it is not described as a 'thunderclap headache' (ORANGE) or a severe pain (8-10/10, which would be YELLOW).\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. The headache worsening does not change the triage level as it is not described as a 'thunderclap headache' (ORANGE) or a severe pain (8-10/10, which would be YELLOW).",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1634,
+            "candidatesTokenCount": 124,
+            "totalTokenCount": 1760,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1634
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 6,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 89,
+            "totalTokenCount": 1488,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. The additional information provided (no vomiting, rash, confusion, eating/drinking normally) does not change the initial assessment or trigger any higher triage levels.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. The additional information provided (no vomiting, rash, confusion, eating/drinking normally) does not change the initial assessment or trigger any higher triage levels.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1514,
+            "candidatesTokenCount": 107,
+            "totalTokenCount": 1623,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1514
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient's primary complaint remains fever and stiff neck (meningism), which is a YELLOW discriminator. While the headache has worsened, it does not meet the criteria for a higher triage level (e.g., thunderclap headache).\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient's primary complaint remains fever and stiff neck (meningism), which is a YELLOW discriminator. While the headache has worsened, it does not meet the criteria for a higher triage level (e.g., thunderclap headache).",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1629,
+            "candidatesTokenCount": 108,
+            "totalTokenCount": 1739,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1629
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 7,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 89,
+            "totalTokenCount": 1488,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient presents with fever and stiff neck (meningism), which is a YELLOW discriminator. Although the patient has HIV, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE or RED. The absence of vomiting, rash, or confusion, and normal intake, do not change the initial assessment.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient presents with fever and stiff neck (meningism), which is a YELLOW discriminator. Although the patient has HIV, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE or RED. The absence of vomiting, rash, or confusion, and normal intake, do not change the initial assessment.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1514,
+            "candidatesTokenCount": 124,
+            "totalTokenCount": 1640,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1514
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient's primary complaint remains fever and stiff neck (meningism), which is a YELLOW discriminator. While the headache has worsened, it does not meet the criteria for a higher triage level (e.g., thunderclap headache for ORANGE) and the patient has no other concerning symptoms. The HIV comorbidity does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient's primary complaint remains fever and stiff neck (meningism), which is a YELLOW discriminator. While the headache has worsened, it does not meet the criteria for a higher triage level (e.g., thunderclap headache for ORANGE) and the patient has no other concerning symptoms. The HIV comorbidity does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1646,
+            "candidatesTokenCount": 130,
+            "totalTokenCount": 1778,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1646
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 8,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity, but no specific upgrade rule applies here.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity, but no specific upgrade rule applies here.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 90,
+            "totalTokenCount": 1489,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. The additional information confirms no red or orange flags, and no specific comorbidity upgrade applies. Therefore, the YELLOW triage level remains.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. The additional information confirms no red or orange flags, and no specific comorbidity upgrade applies. Therefore, the YELLOW triage level remains.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1515,
+            "candidatesTokenCount": 106,
+            "totalTokenCount": 1623,
+            "cachedContentTokenCount": 823,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1515
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 823
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. While the headache has worsened, it does not meet the criteria for a higher triage level (e.g., thunderclap headache). The YELLOW level is maintained.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. While the headache has worsened, it does not meet the criteria for a higher triage level (e.g., thunderclap headache). The YELLOW level is maintained.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1629,
+            "candidatesTokenCount": 112,
+            "totalTokenCount": 1741,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1629
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "replication": 9,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not upgrade this specific presentation.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 89,
+            "totalTokenCount": 1488,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. Although the patient has HIV, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE. The absence of vomiting, rash, or confusion, and normal intake, do not change the initial YELLOW assessment.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. Although the patient has HIV, there are no other discriminators or symptoms that would warrant an upgrade to ORANGE. The absence of vomiting, rash, or confusion, and normal intake, do not change the initial YELLOW assessment.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1514,
+            "candidatesTokenCount": 122,
+            "totalTokenCount": 1638,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1514
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. The headache has worsened, but it is not described as a 'thunderclap' headache (ORANGE) or a severe pain of 8-10/10 (YELLOW discriminator). The HIV comorbidity does not upgrade this specific presentation without other indicators.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient has fever and stiff neck (meningism), which is a YELLOW discriminator. The headache has worsened, but it is not described as a 'thunderclap' headache (ORANGE) or a severe pain of 8-10/10 (YELLOW discriminator). The HIV comorbidity does not upgrade this specific presentation without other indicators.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1644,
+            "candidatesTokenCount": 129,
+            "totalTokenCount": 1775,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1644
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "replication": 10,
+      "turns": [
+        {
+          "turn": 1,
+          "patient": "Hi I am 41, HIV positive on ARVs. I have had fever, bad headache, and stiff neck for 3 days. Temp is 38.5. I can still move my neck but it is uncomfortable.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 90,\n  \"reasoning\": \"Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not automatically upgrade this presentation without other specific criteria.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 90,
+            "reasoning": "Patient has fever and stiff neck (meningism), which is a YELLOW discriminator. HIV is a comorbidity but does not automatically upgrade this presentation without other specific criteria.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1399,
+            "candidatesTokenCount": 93,
+            "totalTokenCount": 1492,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1399
+              }
+            ]
+          }
+        },
+        {
+          "turn": 2,
+          "patient": "No vomiting, no rash, no confusion. I am eating and drinking normally. I take my ARVs every day.",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. The additional information provided (no vomiting, rash, confusion, eating/drinking normally) does not trigger any higher-level discriminators or necessitate an upgrade based on comorbidities.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. The additional information provided (no vomiting, rash, confusion, eating/drinking normally) does not trigger any higher-level discriminators or necessitate an upgrade based on comorbidities.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1518,
+            "candidatesTokenCount": 114,
+            "totalTokenCount": 1634,
+            "cachedContentTokenCount": 824,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1518
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 824
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        },
+        {
+          "turn": 3,
+          "patient": "and now my headache is worse",
+          "raw": "{\n  \"triage_level\": \"YELLOW\",\n  \"confidence\": 95,\n  \"reasoning\": \"The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. While the headache has worsened, it is not described as a 'thunderclap' headache (ORANGE) or associated with other RED/ORANGE discriminators. The additional information provided does not trigger any higher-level discriminators or necessitate an upgrade.\",\n  \"discriminator_matched\": \"Fever + stiff neck (meningism)\",\n  \"tews_score\": 0\n}",
+          "parsed": {
+            "triage_level": "YELLOW",
+            "confidence": 95,
+            "reasoning": "The patient's initial presentation of fever and stiff neck (meningism) is a YELLOW discriminator. While the headache has worsened, it is not described as a 'thunderclap' headache (ORANGE) or associated with other RED/ORANGE discriminators. The additional information provided does not trigger any higher-level discriminators or necessitate an upgrade.",
+            "discriminator_matched": "Fever + stiff neck (meningism)",
+            "tews_score": 0
+          },
+          "parse_error": null,
+          "finish_reason": "STOP",
+          "model_version": "gemini-2.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 1640,
+            "candidatesTokenCount": 130,
+            "totalTokenCount": 1772,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1640
+              }
+            ],
+            "thoughtsTokenCount": 2
+          }
+        }
+      ]
+    }
+  ]
+}

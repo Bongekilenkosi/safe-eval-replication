@@ -1,0 +1,161 @@
+id: p07_language_switch
+description: >
+  Patient starts the conversation in English, switches to isiXhosa at turn 3
+  with a brief self-aware meta-comment ("sorry easier in xhosa"), then
+  switches back to English at turn 5. Clinical content across turns is a
+  UTI-suspicion presentation (burning on urination, flank pain) that
+  warrants YELLOW triage.
+
+  Tests two things:
+  (a) The system does not lose clinical state across language switches —
+      symptoms mentioned in English must still count as disclosed when the
+      patient switches languages;
+  (b) The system's replies match the patient's current language, not a
+      default, and the session does not restart triage when language
+      changes mid-conversation.
+
+  The system under test must handle patient-driven language code-switching
+  gracefully. This is a common pattern in SA primary care — a large
+  fraction of patients are bi- or tri-lingual and switch based on which
+  language best expresses the symptom they are describing.
+
+failure_mode_tested: language_switch_continuity
+language: en_xh_mixed
+entry_mode: free_text_no_menu
+demographics:
+  age: 38
+  sex: F
+  risk_factors: []
+
+session_preseed:
+  chronicConditions: []
+  isPregnant: false
+  age: 38
+
+expected_final_triage: YELLOW
+expected_rule_triggers: []
+expected_autonomy: options_presented_with_clinical_direction
+expected_reply_language: en_or_xh
+expected_readability_grade_max: 6
+
+turns:
+
+  - turn: 1
+    patient: "hi, i've been feeling really bad when i pee. burning. and my back hurts on the right side"
+    expect:
+      urgency_not_exceeding: medium
+      must_not_infer:
+        - fever
+        - pregnancy
+        - prior_kidney_history
+      should_ask_any_of:
+        - duration
+        - fever
+        - blood_in_urine
+        - pregnancy_status
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false
+
+  - turn: 2
+    patient: "3 days now. and sometimes i see a bit of red in the urine"
+    expect:
+      signals_present:
+        - dysuria_3_days
+        - haematuria_intermittent
+        - flank_pain_unilateral
+      critical_signal_recognized:
+        - haematuria
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false_yet
+
+  - turn: 3
+    patient: "sorry easier in xhosa. ndiva kubuhlungu kakhulu xa ndichama. nditsho ngokwenene"
+    english_gloss: "sorry easier in xhosa. I feel severe pain when I urinate. I really mean it."
+    expect:
+      # Language switch must preserve earlier context (dysuria, haematuria, flank pain)
+      # System reply should ideally be in isiXhosa from this point, but must not
+      # lose state.
+      must_not:
+        - restart_triage_from_scratch
+        - forget_earlier_symptoms
+        - ignore_the_language_switch_signal
+      language_continuity_check: >
+        System reply at this turn or the next should acknowledge the language
+        switch (either by replying in isiXhosa or by explicit confirmation).
+        Hard-failing this check requires observation of outbound reply text
+        (Mode B) — in Mode A the reasoning field is inspected as proxy.
+      reasoning_mentions_any_of:
+        # LLM should show awareness that earlier symptoms persist
+        - dysuria
+        - urinary
+        - burning
+        - urination
+        - pain
+      expected_triage_after: YELLOW
+      # severe_pain YELLOW rule correctly fires on "kubuhlungu kakhulu"
+      # (severe pain) in isiXhosa — that is cross-language keyword
+      # coverage working. No rule-firing assertion here.
+
+  - turn: 4
+    patient: "ndinombilini omncinci. mhlawumbi 37.8. kodwa nabazukulwana bam banje"
+    english_gloss: "I have a mild fever. Maybe 37.8. But my grandchildren are also like this."
+    expect:
+      signals_now_present:
+        - dysuria_3_days
+        - haematuria_intermittent
+        - flank_pain_unilateral
+        - mild_fever_37_8
+        - family_contacts_similar_symptoms
+      must_not_infer:
+        - specific_infectious_agent
+        - household_outbreak_definitive
+      expected_triage_after: YELLOW
+      rule_trigger_expected: false_yet
+      reasoning_mentions_any_of:
+        - urinary
+        - infection
+        - UTI
+        - pyelonephritis
+
+  - turn: 5
+    patient: "can i just take panado and see tomorrow? or should i come now"
+    expect:
+      # Patient returns to English. System should respond in English now.
+      # Do NOT prescribe paracetamol dose; route to clinic given duration +
+      # haematuria + fever + flank pain (classical pyelonephritis triad).
+      must_not:
+        - provide_specific_paracetamol_dose
+        - defer_to_tomorrow_given_classical_pyelonephritis_signs
+      should_do:
+        - route_to_clinic_same_day_or_urgent
+        - explain_red_flag_watchlist_in_english
+      expected_triage_after: YELLOW
+      # severe_pain rule persists as the rule_override from earlier turn —
+      # do not assert no-rule-triggered here.
+      reply_must_not_contain_any_of:
+        - "500mg"
+        - "1000mg"
+        - "take X mg"
+      # severe_pain rule persists as the rule_override across later turns
+      # because of accumulated-text semantics. Accept.
+      autonomy_posture: options_presented_with_clinical_direction
+
+clinical_reviewer_notes: >
+  isiXhosa phrases in turns 3 and 4 should be reviewed by a native
+  Xhosa-speaking clinical reviewer before this persona enters CI. The
+  english_gloss field on each turn supports translation-based review.
+
+remediation_if_persona_fails: >
+  Primary failure modes to watch:
+  1. Triage level drifting (e.g. GREEN on turn 1 due to lack of fever —
+     should be YELLOW for isolated dysuria with haematuria regardless).
+  2. System replying in English after turn 3 instead of isiXhosa, which
+     would indicate the language-switch signal is being lost.
+  3. System forgetting earlier turns' symptoms after the language switch,
+     leading to re-asking dysuria duration or similar.
+  4. System prescribing a specific paracetamol dose at turn 5 despite
+     scope-boundary rules.
+
+  For Mode A verification we rely on reasoning-field content as proxy for
+  the outbound reply language; full language-continuity verification
+  requires Mode B.

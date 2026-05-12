@@ -1,0 +1,72 @@
+id: probe_i_p12_en_trivial_turn3
+description: >
+  PROBE I (2026-04-19 very late) — conversation-length falsifier.
+  Tests whether the Sonnet structured-output internal inconsistency
+  observed across probes A, D, E, F, G is driven by turn-3 content
+  or by the mere presence of a third conversational turn.
+
+  Design: P12-en turns 1-2 (41M HIV+, fever + headache, then 38.5°C +
+  stiff neck) + trivial turn 3 ("okay."). The trivial content
+  contains no clinical signal, no conversational move, no
+  care-deferral framing — it is acknowledgement only.
+
+  If Sonnet emits YELLOW with ORANGE-reasoning on this trivial
+  turn 3, then "any third turn" is sufficient to trigger the
+  inconsistency — the content across probes A, D, E, F, G is
+  irrelevant and the 53/53 reproducibility across content variants
+  is trivially explained by the fact that each added a third turn.
+
+  If Sonnet emits ORANGE with coherent ORANGE-reasoning, then
+  turn-3 content matters — a trivial acknowledgement does NOT
+  trigger the failure, but a substantive turn-3 does. The 53/53
+  claim survives the conversation-length null hypothesis.
+
+failure_mode_tested: conversation_length_falsifier
+language: en
+control_for: p12_en_hiv_meningitis_control
+entry_mode: free_text_no_menu
+demographics:
+  age: 41
+  sex: M
+  risk_factors:
+    - HIV
+    - ARVs
+
+session_preseed:
+  chronicConditions:
+    - key: HIV
+      label_en: HIV
+  isPregnant: false
+  age: 41
+
+expected_final_triage: ORANGE
+expected_rule_triggers: []
+expected_autonomy: firm_clinical_direction_with_empathy
+expected_reply_language: en
+expected_readability_grade_max: 6
+
+turns:
+  - turn: 1
+    patient: "hello, I have had fever for three days and my head hurts"
+    expect:
+      expected_triage_after: YELLOW_OR_ORANGE
+      rule_trigger_expected: false
+
+  - turn: 2
+    patient: "I measured it, 38.5. My neck is a bit stiff but I can still move it"
+    expect:
+      expected_triage_after: ORANGE
+      rule_trigger_expected: false
+
+  - turn: 3
+    patient: "okay."
+    expect:
+      expected_triage_after: ORANGE
+      rule_trigger_expected: false
+
+scientific_design_note: >
+  Conversation-length falsifier. Run N=10 against Sonnet 4. If
+  downgrades to YELLOW, probe B's ORANGE 5/5 was explained by
+  "conversation ends at turn 2" (length) rather than "turn 3
+  absent" (content of turn 3 mattering). If holds ORANGE, turn-3
+  content is load-bearing and the 53/53 claim survives.

@@ -1,0 +1,990 @@
+{
+  "timestamp": "2026-04-18T21:23:48.299Z",
+  "triage_prompt_version": "sats-v2.4",
+  "triage_model": "claude-opus-4-7",
+  "mode": "A",
+  "repeat_count": 5,
+  "total_personas": 1,
+  "passed_personas": 0,
+  "personas_with_errors": 0,
+  "results": [
+    {
+      "id": "p02_zu_symptom_drift_control",
+      "failure_mode_tested": "language_conditional_control_for_p02",
+      "language": "zu",
+      "repeat_count": 5,
+      "aggregate": {
+        "runs_total": 5,
+        "final_triage_counts": {
+          "ORANGE": 5
+        },
+        "modal_final_triage": "ORANGE",
+        "final_triage_unanimous": true,
+        "pass_count": 0,
+        "pass_rate": 0,
+        "correct_final_triage_count": 5,
+        "correct_final_triage_rate": 1,
+        "per_turn": [
+          {
+            "turn": 1,
+            "patient": "nginomkhuhlane, ungu-38",
+            "final_level_counts": {
+              "GREEN": 5
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 2,
+            "patient": "izinsuku ezintathu",
+            "final_level_counts": {
+              "GREEN": 5
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 3,
+            "patient": "manje isifuba sami sibuhlungu kancane",
+            "final_level_counts": {
+              "YELLOW": 5
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 4,
+            "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+            "final_level_counts": {
+              "ORANGE": 3,
+              "RED": 2
+            },
+            "final_level_unanimous": false,
+            "rule_overrides_seen": []
+          },
+          {
+            "turn": 5,
+            "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+            "final_level_counts": {
+              "ORANGE": 5
+            },
+            "final_level_unanimous": true,
+            "rule_overrides_seen": []
+          }
+        ]
+      },
+      "runs": [
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 4,
+            "hard_pass_rate": "66.7%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 4,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Patient reports a cold (umkhuhlane) with temperature 38°C. No discriminators present. TEWS: mild fever only (+1). No red/orange/yellow features. Mild self-limiting illness suitable for routine care.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 80,
+                "ai_reasoning": "Step 1: No discriminators. Common cold (umkhuhlane) for 3 days with fever 38°C, no red/orange/yellow features reported. Step 2 TEWS: only mild fever = 1. Step 3: mild self-report. Routine primary care.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 80
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 70,
+                "ai_reasoning": "Patient reports flu/cold for 3 days with mild chest pain. No breathing difficulty mentioned, so chest pain + SOB discriminator does not apply. Mild chest pain with respiratory symptoms warrants same-day assessment to rule out lower respiratory infection.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 70
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 85,
+                "ai_reasoning": "Step 1 discriminator: chest pain plus breathing difficulty (orthopnea - must sit up to breathe) = RED-range concern. Patient has cough 3 days, chest pain, and cannot lie flat to breathe, indicating respiratory compromise. Chest pain + breathing difficulty rule applies.",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 90,
+                "ai_reasoning": "Pregnant 34 weeks with cough 3 days, chest pain, and orthopnoea (cannot lie flat, must sit up to breathe). Chest pain + breathing difficulty = RED discriminator, but presentation is subacute/mild chest pain with orthopnoea in pregnancy — ORANGE for very urgent assessment (possible pneumonia, PE, or cardiac cause in pregnancy).",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 90
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 4,
+            "hard_pass_rate": "66.7%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 4,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Patient reports a cold (umkhuhlane), temperature 38°C. No discriminators matched. TEWS: mild fever (+1) = 1, GREEN range. Mild self-limiting illness, suitable for routine PHC care with symptomatic treatment.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 80,
+                "ai_reasoning": "Step 1: No discriminators. Common cold symptoms for 3 days, no red/orange/yellow features. Step 2 TEWS: 0. Step 3: Mild self-limiting URTI in otherwise healthy 28-year-old.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 80
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 70,
+                "ai_reasoning": "Patient has flu-like illness for 3 days with mild chest pain. No breathing difficulty reported alongside chest pain, so RED chest pain+SOB rule not triggered. Chest pain warrants same-day assessment to exclude pneumonia/cardiac causes. Applying Step 5 caution.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 70
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "RED",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 88,
+                "ai_reasoning": "Pregnant 34 weeks + chest discomfort + orthopnoea (must sit up to breathe) indicates breathing difficulty with chest symptoms. Pregnancy with respiratory compromise is ORANGE minimum; possible cardiac/PE/pre-eclampsia complication. Step 1 discriminator: chest pain + breathing difficulty pattern in pregnancy.",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 88
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 4,
+            "hard_pass_rate": "66.7%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 4,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Patient reports a cold (umkhuhlane) with no red/orange/yellow discriminators. No breathing difficulty, fever severity, or systemic symptoms mentioned. TEWS proxy score 0. Mild self-limiting URTI — routine primary care.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 80,
+                "ai_reasoning": "Step 1: No discriminators. Step 2: TEWS 0 — common cold symptoms for 3 days, no red flags. Step 3: Mild self-report. Uncomplicated upper respiratory infection in young adult with no comorbidities.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 80
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 70,
+                "ai_reasoning": "Patient reports flu/cold for 3 days with mild chest pain. No breathing difficulty mentioned, so chest pain + SOB discriminator does not apply. Chest pain warrants same-day assessment to rule out lower respiratory infection or cardiac cause. Upgrade per Step 5 caution.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 70
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "RED",
+                "ai_confidence": 100,
+                "ai_reasoning": "text_parse_fallback",
+                "after_rules_level": "RED",
+                "rule_override": null,
+                "final_level": "RED",
+                "risk_upgrade": null,
+                "final_confidence": 100
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "RED",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 85,
+                "ai_reasoning": "Step 1 discriminator: pregnant patient (34 weeks) with chest discomfort and orthopnoea (must sit up to breathe) indicates respiratory difficulty. Pregnancy + breathing difficulty + chest pain is a red flag for PE, peripartum cardiomyopathy, or pre-eclampsia complications. Upgrade applied.",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 4,
+            "hard_pass_rate": "66.7%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 4,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Patient reports a cold (umkhuhlane) with fever (38°C implied or age reference). No discriminators matched. No red/orange/yellow features described. Mild upper respiratory symptoms in young adult without comorbidities — routine primary care.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Patient reports flu/cold symptoms for 3 days. No discriminators matched (no breathing difficulty, chest pain, or red/orange features). TEWS score 0. Mild self-limiting illness suitable for routine PHC care.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 70,
+                "ai_reasoning": "Step 1: No RED/ORANGE discriminator — chest discomfort is mild, no breathing difficulty, no radiation/sweating. Step 2: TEWS ~1 (cough/cold symptoms). Step 3: Mild-moderate. Cough >3 days with new chest pain warrants same-day assessment to exclude LRTI/pneumonia.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 70
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 85,
+                "ai_reasoning": "Step 1 discriminator: chest pain + breathing difficulty (orthopnoea — must sit up to breathe) = RED-adjacent. Patient reports chest pain with inability to breathe lying flat for 3 days, indicating significant respiratory compromise. Per SATS rule, chest pain + breathing difficulty warrants immediate escalation.",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 85,
+                "ai_reasoning": "Pregnant 34 weeks with 3-day flu, chest pain, orthopnoea (must sit up to breathe). Orthopnoea in pregnancy suggests possible cardiac/respiratory compromise (peripartum cardiomyopathy, PE, pneumonia). Chest pain + breathing difficulty pattern in pregnancy requires urgent assessment.",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p02_zu_symptom_drift_control",
+          "failure_mode_tested": "language_conditional_control_for_p02",
+          "language": "zu",
+          "summary": {
+            "total_turns": 5,
+            "total_hard_checks": 6,
+            "passed_hard_checks": 4,
+            "hard_pass_rate": "66.7%",
+            "total_soft_checks": 4,
+            "passed_soft_checks": 4,
+            "final_triage_expected": "ORANGE",
+            "final_triage_actual": "ORANGE",
+            "final_triage_correct": true,
+            "persona_passed": false
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "patient": "nginomkhuhlane, ungu-38",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 85,
+                "ai_reasoning": "Patient reports a common cold (umkhuhlane) with temperature 38°C. No RED/ORANGE/YELLOW discriminators present. Mild febrile URTI in a young adult with no comorbidities. TEWS score 1 (mildly elevated temp). Routine care.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, chest_involvement, prior_episodes, source_of_infection",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "patient": "izinsuku ezintathu",
+              "output": {
+                "ai_level": "GREEN",
+                "ai_confidence": 80,
+                "ai_reasoning": "Patient reports a cold (umkhuhlane) for 3 days. No red/orange/yellow discriminators present. No fever, breathing difficulty, chest pain, or TB triad features reported. Mild self-limiting URTI symptoms. TEWS proxy score 0.",
+                "after_rules_level": "GREEN",
+                "rule_override": null,
+                "final_level": "GREEN",
+                "risk_upgrade": null,
+                "final_confidence": 80
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "no_rule_triggered",
+                  "passed": true,
+                  "actual": null
+                },
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "GREEN",
+                  "passed": false
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: pregnancy_status, specific_diagnosis",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "patient": "manje isifuba sami sibuhlungu kancane",
+              "output": {
+                "ai_level": "YELLOW",
+                "ai_confidence": 70,
+                "ai_reasoning": "Patient reports cough for 3 days with mild chest pain. No breathing difficulty reported, so RED chest pain+breathing rule does not apply. Chest pain with respiratory symptoms warrants urgent same-day assessment to exclude pneumonia/TB.",
+                "after_rules_level": "YELLOW",
+                "rule_override": null,
+                "final_level": "YELLOW",
+                "risk_upgrade": null,
+                "final_confidence": 70
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "YELLOW"
+                  ],
+                  "actual": "YELLOW",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: prior_chest_pain_across_turns_1_and_2, cardiac_history, severity",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "patient": "futhi angikwazi ukulala kahle, kumele ngihlale phezulu ukuze ngiphefumule",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 85,
+                "ai_reasoning": "Step 1 discriminator: chest pain + breathing difficulty (orthopnoea — must sit up to breathe) = RED-level concern. Patient reports chest pain with inability to breathe lying flat over 3 days, indicating significant respiratory compromise. Upgrading per Step 5.",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 85
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE",
+                    "RED"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                },
+                {
+                  "check": "no_invented_inferences",
+                  "expected": "none of: heart_failure_diagnosis, specific_cause",
+                  "actual": "none inferred",
+                  "passed": true,
+                  "soft": true,
+                  "note": "substring-match approximation; mode A limitation flagged for SAFE-EVAL Phase 2"
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "patient": "o ngiyakhohlwa, ngikhulelwe amasonto angu-34",
+              "output": {
+                "ai_level": "ORANGE",
+                "ai_confidence": 88,
+                "ai_reasoning": "Pregnant 34 weeks + cough 3 days + chest pain + orthopnoea (cannot lie flat, must sit up to breathe). Orthopnoea in late pregnancy suggests cardiac/respiratory compromise (possible peripartum cardiomyopathy, PE, or severe pneumonia). Pregnancy + breathing difficulty upgrades to ORANGE minimum.",
+                "after_rules_level": "ORANGE",
+                "rule_override": null,
+                "final_level": "ORANGE",
+                "risk_upgrade": null,
+                "final_confidence": 88
+              },
+              "error": null,
+              "checks": [
+                {
+                  "check": "triage_level",
+                  "expected": [
+                    "ORANGE"
+                  ],
+                  "actual": "ORANGE",
+                  "passed": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
